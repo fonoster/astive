@@ -49,7 +49,7 @@ public enum TonType {UNKNOWN(0x0, "Unknown", "Unknown"),
   private String literal;
 
   /**ADOC_COMME */
-  private TonType(int value, String name, String literal) {
+  private TonType(final int value, final String name, final String literal) {
     this.value = value;
     this.name = name;
     this.literal = literal;
@@ -62,7 +62,7 @@ public enum TonType {UNKNOWN(0x0, "Unknown", "Unknown"),
    *
    * @return DOCUMENT ME!
    */
-  public static TonType get(int value) {
+  public static TonType get(final int value) {
     return null;
   }
 
@@ -73,7 +73,7 @@ public enum TonType {UNKNOWN(0x0, "Unknown", "Unknown"),
    *
    * @return DOCUMENT ME!
    */
-  public static TonType getByName(String name) {
+  public static TonType getByName(final String name) {
     return null;
   }
 

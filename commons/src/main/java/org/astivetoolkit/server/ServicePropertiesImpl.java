@@ -59,13 +59,13 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    *
    * @throws SystemException if the service cannot be binded to the bind address.
    */
-  public ServicePropertiesImpl(Properties properties, String serviceName)
+  public ServicePropertiesImpl(final Properties properties, final String serviceName)
                         throws SystemException {
     this.properties = properties;
 
     setDisabled(Boolean.parseBoolean(properties.get("disabled").toString().trim()));
-    setPort(Integer.valueOf(properties.get("port").toString().trim()).intValue());
-    setBacklog(Integer.valueOf(properties.get("threads").toString().trim()).intValue());
+    setPort(Integer.valueOf(properties.get("port").toString()));
+    setBacklog(Integer.valueOf(properties.get("threads").toString().trim()));
 
     try {
       setBindAddr(InetAddress.getByName(properties.get("bind").toString().trim()));
@@ -77,11 +77,11 @@ public final class ServicePropertiesImpl implements ServiceProperties {
     }
 
     try {
-      List<InetAddress> onlyFromList = new ArrayList<InetAddress>();
-      String[] l = properties.get("onlyFrom").toString().split(",");
+   final   List<InetAddress> onlyFromList = new ArrayList<InetAddress>();
+    final  String[] l = properties.get("onlyFrom").toString().split(",");
 
       for (int i = 0x0; l.length > i; i++) {
-        InetAddress id = InetAddress.getByName(l[i].trim());
+       final   InetAddress id = InetAddress.getByName(l[i].trim());
         onlyFromList.add(id);
       }
 
@@ -127,7 +127,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    *
    * @return a parameter present in the properties file, or null if none.
    */
-  public String getPameter(String parameter) {
+  public String getPameter(final String parameter) {
     try {
       return properties.get(parameter).toString().trim();
     } catch (NullPointerException ex) {
@@ -179,7 +179,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setBacklog(int backlog) {
+  public void setBacklog(final int backlog) {
     this.backlog = backlog;
   }
 
@@ -187,7 +187,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setBindAddr(InetAddress bindAddr) {
+  public void setBindAddr(final InetAddress bindAddr) {
     this.bindAddr = bindAddr;
   }
 
@@ -195,7 +195,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setDisabled(boolean disabled) {
+  public void setDisabled(final boolean disabled) {
     this.disabled = disabled;
   }
 
@@ -203,7 +203,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setOnlyFrom(List<InetAddress> onlyFrom) {
+  public void setOnlyFrom(final List<InetAddress> onlyFrom) {
     this.onlyFrom = onlyFrom;
   }
 
@@ -211,7 +211,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setPort(int port) {
+  public void setPort(final int port) {
     this.port = port;
   }
 
@@ -219,7 +219,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setServer(String server) {
+  public void setServer(final String server) {
     this.server = server;
   }
 
@@ -227,7 +227,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setServiceName(String serviceName) {
+  public void setServiceName(final String serviceName) {
     this.serviceName = serviceName;
   }
 
@@ -235,7 +235,7 @@ public final class ServicePropertiesImpl implements ServiceProperties {
    * {@inheritDoc}
    */
   @Override
-  public void setUnableToOpen(boolean unableToOpen) {
+  public void setUnableToOpen(final boolean unableToOpen) {
     this.unableToOpen = unableToOpen;
   }
 }

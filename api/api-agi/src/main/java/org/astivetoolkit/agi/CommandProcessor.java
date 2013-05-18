@@ -31,7 +31,7 @@ import org.astivetoolkit.util.AppLocale;
  *
  * @since 1.0.0
  */
-public class CommandProcessor {
+public final class CommandProcessor {
   /**
    * Usual logger.
    */
@@ -54,7 +54,7 @@ public class CommandProcessor {
       throw new AgiException(AppLocale.getI18n("notACommandObject"));
     }
 
-    List<Field> parameters = getParameters(o);
+   final  List<Field> parameters = getParameters(o);
 
     StringBuilder cmd = new StringBuilder(command.command());
 

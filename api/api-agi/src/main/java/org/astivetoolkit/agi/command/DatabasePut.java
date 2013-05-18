@@ -64,7 +64,7 @@ public class DatabasePut implements Serializable {
    * @param key family element.
    * @param value family element value.
    */
-  public DatabasePut(String family, String key, String value) {
+  public DatabasePut(final String family, final String key, final String value) {
     this.family = family;
     this.key = key;
     this.value = value;
@@ -102,7 +102,7 @@ public class DatabasePut implements Serializable {
    *
    * @param family database family.
    */
-  public void setFamily(String family) {
+  public void setFamily(final String family) {
     this.family = family;
   }
 
@@ -111,7 +111,7 @@ public class DatabasePut implements Serializable {
    *
    * @param key
    */
-  public void setKey(String key) {
+  public void setKey(final String key) {
     this.key = key;
   }
 

@@ -39,7 +39,7 @@ public enum HangupCause { // TODO: Define all enum elements below this comment.
    *
    * @param code hangup cause int.
    */
-  private HangupCause(int code) {
+  private HangupCause(final int code) {
     this.code = code;
   }
 

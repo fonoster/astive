@@ -84,7 +84,7 @@ public class ControlStreamFile implements Serializable {
    *
    * @param file audio to play.
    */
-  public ControlStreamFile(String file) {
+  public ControlStreamFile(final String file) {
     this.file = file;
     escapeDigits = "";
     offset = -1;
@@ -97,7 +97,7 @@ public class ControlStreamFile implements Serializable {
    * @param file audio to play.
    * @param escapeDigits digits to interrupt the audio.
    */
-  public ControlStreamFile(String file, String escapeDigits) {
+  public ControlStreamFile(final String file, final String escapeDigits) {
     this.file = file;
     this.escapeDigits = escapeDigits;
     offset = -1;
@@ -112,7 +112,7 @@ public class ControlStreamFile implements Serializable {
    * @param escapeDigits digits to interrupt the audio.
    * @param offset is provided then the audio will seek to sample offset before play starts.
    */
-  public ControlStreamFile(String file, String escapeDigits, Integer offset) {
+  public ControlStreamFile(final String file, final String escapeDigits, final Integer offset) {
     this.file = file;
     this.escapeDigits = escapeDigits;
     this.offset = offset;
@@ -131,8 +131,8 @@ public class ControlStreamFile implements Serializable {
    * @param rewindDigit repeat the audio.
    * @param pauseDigit stop the steam.
    */
-  public ControlStreamFile(String file, String escapeDigits, Integer offset, char forwardDigit,
-                           char rewindDigit, char pauseDigit) {
+  public ControlStreamFile(final String file, final String escapeDigits, final Integer offset, final char forwardDigit,
+                          final char rewindDigit, final char pauseDigit) {
     this.file = file;
     this.escapeDigits = escapeDigits;
     this.offset = offset;

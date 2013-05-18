@@ -33,11 +33,6 @@ import org.astivetoolkit.agi.annotation.RequestField;
  * @since 1.0.0
  */
 public class AgiRequest {
-  /**
-   * Serial version identifier.
-   */
-  private static final long serialVersionUID = -6279678160047296949L;
-
   // A usual logging class
   private static final Logger LOG = Logger.getLogger(AgiRequest.class);
   private static Map<String, String> parameters;
@@ -202,7 +197,7 @@ public class AgiRequest {
   public AgiRequest(final ArrayList<String> lines) {
     this.lines = lines;
 
-    fieldsMap = new HashMap();
+    fieldsMap = new HashMap<String, String>();
 
     for (String line : lines) {
       if (line.split(":").length < 2) {
@@ -238,8 +233,7 @@ public class AgiRequest {
     if (script.split("\\?").length > 1) {
       params = script.split("\\?")[1];
     }
-
-    String and = null;
+ 
 
     if (params != null) {
       if (params.split("&").length > 1) {
@@ -292,7 +286,7 @@ public class AgiRequest {
 
             break;
           } else if (f.getType().equals(Integer.class)) {
-            f.set(this, new Integer(fieldsMap.get(af)));
+            f.set(this, Integer.valueOf(fieldsMap.get(af)));
 
             break;
           } else {

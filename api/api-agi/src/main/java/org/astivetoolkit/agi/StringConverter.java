@@ -34,8 +34,8 @@ public class StringConverter implements Converter {
    * @param separator use to separate values
    * @return an string of command separated values.
    */
-  public String fromArrayString(String[] a, String separator) {
-    StringBuilder b = new StringBuilder();
+  public String fromArrayString(final String[] a, final String separator) {
+    StringBuilder b = new StringBuilder(30);
 
     for (int i = 0x0; i < a.length; i++) {
       b.append(a[i]);

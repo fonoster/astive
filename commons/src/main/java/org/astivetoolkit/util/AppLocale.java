@@ -29,9 +29,9 @@ import java.util.ResourceBundle;
  *
  * @since 1.0.0
  */
-public class AppLocale {
+public final class AppLocale {
   // Define the bundle prefix.     
-  private static final ResourceBundle messages = ResourceBundle.getBundle("Messages");
+  private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("Messages");
 
   // Define the message format.     
   private static MessageFormat messageForm = new MessageFormat("");
@@ -52,9 +52,9 @@ public class AppLocale {
    * @param key used to access a particular message.
    * @return localized message.
    */
-  public static String getI18n(String key) {
+  public static String getI18n(final String key) {
     try {
-      return messages.getString(key);
+      return MESSAGES.getString(key);
     } catch (MissingResourceException ex) {
       return key;
     }
@@ -74,13 +74,13 @@ public class AppLocale {
    * @param args arguments to be passed to the message.
    * @return localized message with arguments.
    */
-  public static String getI18n(String key, Object[] args) {
+  public static String getI18n(final String key, final Object[] args) {
     try {
-      String msgPatter = messages.getString(key);
+     final String msgPatter = MESSAGES.getString(key);
       messageForm.setFormats(formats);
       messageForm.applyPattern(msgPatter);
 
-      String result = messageForm.format(args);
+     final String result = messageForm.format(args);
 
       return result;
     } catch (MissingResourceException ex) {

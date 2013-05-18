@@ -45,7 +45,7 @@ public class VoiceComposer {
 
   // hide the constructor
   private VoiceComposer() {
-    commands = new ArrayList();
+    commands = new ArrayList<Object>();
   }
 
   /**
@@ -78,40 +78,24 @@ public class VoiceComposer {
   }
 
   private static boolean hasEscapeDigits() {
-    if ((escapeDigits != null) && (escapeDigits.length() != 0x0)) {
-      return true;
-    }
-
-    return false;
+    return (escapeDigits != null) && (escapeDigits.length() != 0x0);
   }
 
   private static boolean hasFormat() {
-    if (VoiceComposer.format != null) {
-      return true;
-    }
-
-    return false;
+    return (VoiceComposer.format != null) ;
   }
 
   private static boolean hasOffset() {
-    if (VoiceComposer.offset == 0x0) {
-      return true;
-    }
-
-    return false;
+     return (VoiceComposer.offset == 0x0);
   }
 
   private static boolean hasTimeZone() {
-    if (VoiceComposer.timeZone != null) {
-      return true;
-    }
-
-    return false;
+    return (VoiceComposer.timeZone != null);    
   }
 
   private static void reset() {
     VoiceComposer.escapeDigits = "";
-    VoiceComposer.commands = new ArrayList();
+    VoiceComposer.commands = new ArrayList<Object>();
     VoiceComposer.format = "";
     VoiceComposer.timeZone = null;
     VoiceComposer.offset = 0x0;
@@ -124,7 +108,7 @@ public class VoiceComposer {
    *
    * @return DOCUMENT ME!
    */
-  public static VoiceComposer sayAlpha(String text) {
+  public static VoiceComposer sayAlpha(final String text) {
     if (hasEscapeDigits()) {
       commands.add(new SayAlpha(text, VoiceComposer.escapeDigits));
     } else {
@@ -141,7 +125,7 @@ public class VoiceComposer {
    *
    * @return DOCUMENT ME!
    */
-  public static VoiceComposer sayDate(Date date) {
+  public static VoiceComposer sayDate(final Date date) {
     if (hasEscapeDigits()) {
       commands.add(new SayDate(date, VoiceComposer.escapeDigits));
     } else {
@@ -158,7 +142,7 @@ public class VoiceComposer {
    *
    * @return DOCUMENT ME!
    */
-  public static VoiceComposer sayDatetime(Date datetime) {
+  public static VoiceComposer sayDatetime(final Date datetime) {
     if (hasEscapeDigits()) {
       commands.add(new SayDatetime(datetime, VoiceComposer.escapeDigits));
     } else {
@@ -175,7 +159,7 @@ public class VoiceComposer {
    *
    * @return DOCUMENT ME!
    */
-  public static VoiceComposer sayDigits(String digits) {
+  public static VoiceComposer sayDigits(final String digits) {
     if (hasEscapeDigits()) {
       commands.add(new SayDigits(digits, VoiceComposer.escapeDigits));
     } else {

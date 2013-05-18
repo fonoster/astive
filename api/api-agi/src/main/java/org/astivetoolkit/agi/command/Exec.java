@@ -58,7 +58,7 @@ public class Exec implements Serializable {
    *
    * @param application application to execute.
    */
-  public Exec(String application) {
+  public Exec(final String application) {
     this.application = application;
   }
 
@@ -68,7 +68,7 @@ public class Exec implements Serializable {
    * @param application application to execute.
    * @param options application options.
    */
-  public Exec(String application, String... options) {
+  public Exec(final String application, final String... options) {
     this.application = application;
     this.options = options;
   }
@@ -96,7 +96,7 @@ public class Exec implements Serializable {
    *
    * @param application application to execute.
    */
-  public void setApplication(String application) {
+  public void setApplication(final String application) {
     this.application = application;
   }
 

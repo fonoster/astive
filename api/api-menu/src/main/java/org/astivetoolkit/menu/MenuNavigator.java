@@ -78,7 +78,7 @@ public class MenuNavigator {
         if (item.getAuthenticator().isAuthenticated()) {
           item.fireAuthenticationEvent_authenticationSuccess(null);
         } else {
-          item.fireAuthenticationEvent_authenticationFail(evt);
+          item.fireAuthenticationEventAuthenticationFail(evt);
         }
       }
     }
@@ -99,7 +99,7 @@ public class MenuNavigator {
   private boolean checkMaxTimeout(Menu menu, String opt) {
     if (menu.getTimeoutCount() >= menu.getMaxTimeouts()) {
       MaxTimeoutEvent event = new MaxTimeoutEvent(menu, opt, menu.getMaxTimeouts());
-      menu.fireMaxTimeoutEvent_maxTimeoutPerform(event);
+      menu.fireMaxTimeoutEventMaxTimeoutPerform(event);
 
       // do break the flow
       return true;
@@ -109,10 +109,10 @@ public class MenuNavigator {
   }
 
   private ArrayList<String> getChildsKeys(ArrayList<MenuItem> menuChilds) {
-    ArrayList result = new ArrayList();
+    ArrayList<String> result = new ArrayList<String>();
 
     for (MenuItem child : menuChilds) {
-      String digits = ((MenuItem) child).getDigits();
+      final String digits = ((MenuItem) child).getDigits();
       result.add(digits);
     }
 
@@ -347,7 +347,7 @@ public class MenuNavigator {
         }
 
         PositionChangeEvent evt = new PositionChangeEvent(oldOption, option, pos - 1);
-        menu.firePositionChangeEvent_positionChange(evt);
+        menu.firePositionChangeEventPositionChange(evt);
         pos++;
 
         if (LOG.isDebugEnabled()) {
@@ -374,7 +374,7 @@ public class MenuNavigator {
       // signo de número.            
       if (digits == null) {
         FailEvent evt = new FailEvent(menu, digits, menu.getFailuresCount());
-        menu.fireFailListener_failurePerform(evt);
+        menu.fireFailListenerFailurePerform(evt);
       } else if (digits.equals("(timeout)")) {
         // WARNNING:
         //menu.fireTimeoutListener_timeoutPerform(null);
@@ -418,7 +418,7 @@ public class MenuNavigator {
       }
 
       ActionEvent evt = new ActionEvent(selectedOption, digits);
-      selectedOption.fireActionEvent_actionPerformed(evt);
+      selectedOption.fireActionEventActionPerformed(evt);
 
       if (selectedOption instanceof Menu) {
         run((Menu) selectedOption);

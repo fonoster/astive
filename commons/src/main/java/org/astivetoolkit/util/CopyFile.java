@@ -19,14 +19,22 @@
  */
 package org.astivetoolkit.util;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+
 
 /**
  * Utility to copy a file from one location to another.
  *
  * @since 1.0.0
  */
-public class CopyFile {
+public final class CopyFile {
   private CopyFile() {
   }
 
@@ -42,11 +50,11 @@ public class CopyFile {
   public static synchronized void copyfile(String srFile, String dtFile)
                                     throws FileNotFoundException, IOException {
     try {
-      File f1 = new File(srFile);
-      File f2 = new File(dtFile);
-      InputStream in = new FileInputStream(f1);
+    final  File f1 = new File(srFile);
+    final  File f2 = new File(dtFile);
+    final  InputStream in = new FileInputStream(f1);
 
-      OutputStream out = new FileOutputStream(f2);
+    final  OutputStream out = new FileOutputStream(f2);
 
       byte[] buf = new byte[0x400];
       int len;

@@ -19,7 +19,13 @@
  */
 package org.astivetoolkit.agi;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,11 +47,6 @@ public class AgiCommandReply {
     Pattern.compile("^200 result=\\S* +(\\(.*\\) )?(.+)$");
   private static final Pattern SYNOPSIS_PATTERN = Pattern.compile("^\\s*Usage:\\s*(.*)\\s*$");
   private static final String END_OF_PROPER_USAGE = "520 End of proper usage.";
-
-  /**
-   * Serial version identifier.
-   */
-  private static final long serialVersionUID = 0x5725f2bf926cb1b5L;
 
   /**
    * The status code.

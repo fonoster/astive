@@ -28,7 +28,7 @@ import java.net.ServerSocket;
  *
  * @since 1.0.0
  */
-public class NetUtil {
+public final class NetUtil {
   private NetUtil() {
   }
 
@@ -39,7 +39,7 @@ public class NetUtil {
    * @param port a valid port (if is in the range in between 0 and 65535, inclusive).
    * @return whether or not the port is available.
    */
-  public static boolean isPortAvailable(int port) {
+  public static boolean isPortAvailable(final int port) {
     ServerSocket ss = null;
     DatagramSocket ds = null;
 

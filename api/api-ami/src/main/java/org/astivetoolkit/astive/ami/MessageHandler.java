@@ -19,7 +19,12 @@
  */
 package org.astivetoolkit.astive.ami;
 
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import org.astivetoolkit.ami.event.ManagerEvent;
@@ -63,7 +68,7 @@ class MessageHandler implements Runnable {
    * DOCUMENT ME!
    */
   public void checkInPacket() {
-    ArrayList<String> lines = new ArrayList();
+    ArrayList<String> lines = new ArrayList<String>();
 
     try {
       String s;

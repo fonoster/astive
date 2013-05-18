@@ -56,7 +56,7 @@ public class DatabaseDelTree implements Serializable {
    *
    * @param family database family.
    */
-  public DatabaseDelTree(String family) {
+  public DatabaseDelTree(final String family) {
     this.family = family;
   }
 
@@ -67,7 +67,7 @@ public class DatabaseDelTree implements Serializable {
    * @param family database family.
    * @param keyTree keytree to be deleted.
    */
-  public DatabaseDelTree(String family, String keyTree) {
+  public DatabaseDelTree(final String family, final String keyTree) {
     this.family = family;
     this.keyTree = keyTree;
   }
@@ -95,7 +95,7 @@ public class DatabaseDelTree implements Serializable {
    *
    * @param family database family.
    */
-  public void setFamily(String family) {
+  public void setFamily(final String family) {
     this.family = family;
   }
 
@@ -104,7 +104,7 @@ public class DatabaseDelTree implements Serializable {
    *
    * @param keyTree family keytree.
    */
-  public void setKeyTree(String keyTree) {
+  public void setKeyTree(final String keyTree) {
     this.keyTree = keyTree;
   }
 }

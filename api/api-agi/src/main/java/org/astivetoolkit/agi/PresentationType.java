@@ -51,7 +51,7 @@ public enum PresentationType {ALLOWED(0x0, "allowed", "allowed"),
   private String literal;
 
   /**ADOC_COMME */
-  private PresentationType(int value, String name, String literal) {
+  private PresentationType(final int value, final String name, final String literal) {
     this.value = value;
     this.name = name;
     this.literal = literal;
@@ -64,7 +64,7 @@ public enum PresentationType {ALLOWED(0x0, "allowed", "allowed"),
    *
    * @return DOCUMENT ME!
    */
-  public static PresentationType get(int value) {
+  public static PresentationType get(final int value) {
     return null;
   }
 
@@ -75,7 +75,7 @@ public enum PresentationType {ALLOWED(0x0, "allowed", "allowed"),
    *
    * @return DOCUMENT ME!
    */
-  public static PresentationType get(String name) {
+  public static PresentationType get(final String name) {
     return null;
   }
 

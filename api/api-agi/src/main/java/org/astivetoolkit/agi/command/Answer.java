@@ -34,9 +34,5 @@ public class Answer implements Serializable {
    */
   private static final long serialVersionUID = 0xbb739b18b5e94c7eL;
 
-  /**
-   * Create a new Answer object.
-   */
-  public Answer() {
-  }
+  
 }

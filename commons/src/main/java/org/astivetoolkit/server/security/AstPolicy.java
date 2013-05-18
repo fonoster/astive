@@ -34,7 +34,7 @@ import org.astivetoolkit.server.ServiceProperties;
  * @see AstPolicyUtil
  * @since 1.0.0
  */
-public class AstPolicy extends Policy {
+public final class AstPolicy extends Policy {
   private static PermissionCollection perms;
   private static final AstPolicy INSTANCE = new AstPolicy();
 
@@ -58,7 +58,7 @@ public class AstPolicy extends Policy {
    * @param permission to be added. WARNING.: this implementation provides
    * support only for SocketPermission.
    */
-  public void addPermission(SocketPermission permission) {
+  public void addPermission(final SocketPermission permission) {
     perms.add(permission);
   }
 

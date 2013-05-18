@@ -59,7 +59,7 @@ public class DatabaseGet implements Serializable {
    * @param family database family.
    * @param key family element.
    */
-  public DatabaseGet(String family, String key) {
+  public DatabaseGet(final String family, final String key) {
     this.family = family;
     this.key = key;
   }
@@ -87,7 +87,7 @@ public class DatabaseGet implements Serializable {
    *
    * @param family database family
    */
-  public void setFamily(String family) {
+  public void setFamily(final String family) {
     this.family = family;
   }
 
@@ -96,7 +96,7 @@ public class DatabaseGet implements Serializable {
    *
    * @param key family element.
    */
-  public void setKey(String key) {
+  public void setKey(final String key) {
     this.key = key;
   }
 }

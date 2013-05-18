@@ -19,8 +19,17 @@
  */
 package org.astivetoolkit.telnet;
 
-import java.io.*;
-import java.net.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketPermission;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -137,7 +146,7 @@ public abstract class TelnetServer extends ServerSocket implements Runnable {
           }
 
           if (command.equals(TelnetCommand.HELP)) {
-            StringBuilder sb = new StringBuilder(" ");
+            StringBuilder sb = new StringBuilder(65);
             sb.append("stop");
             sb.append("\n");
             sb.append(" ");
@@ -162,7 +171,7 @@ public abstract class TelnetServer extends ServerSocket implements Runnable {
           }
 
           if (command.equals(TelnetCommand.LOOKUP)) {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder(30);
             Iterator<String> i = lookup().iterator();
 
             while (i.hasNext()) {

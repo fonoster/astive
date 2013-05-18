@@ -39,10 +39,10 @@ import org.astivetoolkit.menu.action.Action;
  */
 public class MenuItem {
   private Action action;
-  private ArrayList<ActionListener> actionListenerList = new ArrayList();
-  private ArrayList<AuthenticationListener> authenticationListenerList = new ArrayList();
-  private ArrayList<DigitsListener> digitsListenerList = new ArrayList();
-  private ArrayList<KeyListener> keyListenerList = new ArrayList();
+  private ArrayList<ActionListener> actionListenerList = new ArrayList<ActionListener>();
+  private ArrayList<AuthenticationListener> authenticationListenerList = new ArrayList<AuthenticationListener>();
+  private ArrayList<DigitsListener> digitsListenerList = new ArrayList<DigitsListener>();
+  private ArrayList<KeyListener> keyListenerList = new ArrayList<KeyListener>();
   private Authenticator authenticator;
   private List<VoiceComposition> voiceCompositionList;
 
@@ -143,7 +143,7 @@ public class MenuItem {
    *
    * @param evt DOCUMENT ME!
    */
-  protected void fireActionEvent_actionPerformed(ActionEvent evt) {
+  protected void fireActionEventActionPerformed(ActionEvent evt) {
     for (ActionListener listener : actionListenerList) {
       listener.processAction(evt);
     }
@@ -154,7 +154,7 @@ public class MenuItem {
    *
    * @param evt DOCUMENT ME!
    */
-  protected void fireAuthenticationEvent_authenticationFail(AuthenticationEvent evt) {
+  protected void fireAuthenticationEventAuthenticationFail(AuthenticationEvent evt) {
     for (AuthenticationListener listener : authenticationListenerList) {
       listener.authenticationFail(evt);
     }

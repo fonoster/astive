@@ -63,7 +63,7 @@ public class DatabaseDel implements Serializable {
    * @param family database family
    * @param key identifier of object in database.
    */
-  public DatabaseDel(String family, String key) {
+  public DatabaseDel(final String family, final String key) {
     this.family = family;
     this.key = key;
   }
@@ -91,7 +91,7 @@ public class DatabaseDel implements Serializable {
    *
    * @param family
    */
-  public void setFamily(String family) {
+  public void setFamily(final String family) {
     this.family = family;
   }
 
@@ -100,7 +100,7 @@ public class DatabaseDel implements Serializable {
    *
    * @param key element to delete.
    */
-  public void setKey(String key) {
+  public void setKey(final String key) {
     this.key = key;
   }
 }

@@ -55,7 +55,7 @@ public class AgiCommandHandler {
       return agiRequest;
     }
 
-    ArrayList<String> lines = new ArrayList();
+    ArrayList<String> lines = new ArrayList<String>();
     String line;
 
     try {

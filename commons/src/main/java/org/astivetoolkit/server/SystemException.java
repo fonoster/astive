@@ -26,10 +26,14 @@ package org.astivetoolkit.server;
  * @since 1.0.0
  */
 public class SystemException extends Exception {
-  /**
+ 
+	private static final long serialVersionUID = 1L;
+
+/**
    * Creates a new SystemException object with null as its detail message.
    */
   public SystemException() {
+	  super();
   }
 
   /**
@@ -38,7 +42,7 @@ public class SystemException extends Exception {
    * @param message the detail message (which is saved for later retrieval by the
    * <code>Throwable.getMessage()</code> method).
    */
-  public SystemException(String message) {
+  public SystemException(final String message) {
     super(message);
   }
 }

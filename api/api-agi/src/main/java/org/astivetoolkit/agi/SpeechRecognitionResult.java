@@ -39,7 +39,7 @@ public class SpeechRecognitionResult {
    *
    * @param AgiCommandReply DOCUMENT ME!
    */
-  public SpeechRecognitionResult(AgiCommandReply AgiCommandReply) {
+  public SpeechRecognitionResult(final AgiCommandReply AgiCommandReply) {
     this.AgiCommandReply = AgiCommandReply;
   }
 
@@ -53,7 +53,7 @@ public class SpeechRecognitionResult {
     final List<SpeechResult> results = new ArrayList<SpeechResult>(numberOfResults);
 
     for (int i = 0x0; i < numberOfResults; i++) {
-      SpeechResult result =
+    final  SpeechResult result =
         new SpeechResult(Integer.valueOf(AgiCommandReply.getAttribute("score" + i)),
                          AgiCommandReply.getAttribute("text" + i),
                          AgiCommandReply.getAttribute("grammar" + i));
@@ -70,12 +70,8 @@ public class SpeechRecognitionResult {
    */
   public char getDigit() {
     final String digit = AgiCommandReply.getAttribute("digit");
-
-    if ((digit == null) || (digit.length() == 0x0)) {
-      return 0;
-    }
-
-    return digit.charAt(0x0);
+ 
+    return ((digit == null) || (digit.length() == 0x0) ? 0 :digit.charAt(0x0));
   }
 
   /**
@@ -161,8 +157,10 @@ public class SpeechRecognitionResult {
    */
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder("SpeechRecognitionResult[");
-
+    final StringBuilder sb = new StringBuilder(65);
+    
+    sb.append("SpeechRecognitionResult[");
+    
     if (isDtmf()) {
       sb.append("dtmf=true,");
       sb.append("digit=").append(getDigit()).append(",");
@@ -195,7 +193,7 @@ public class SpeechRecognitionResult {
     private final String text;
     private final int score;
 
-    private SpeechResult(int score, String text, String grammar) {
+    private SpeechResult(final int score, final String text, final String grammar) {
       this.score = score;
       this.text = text;
       this.grammar = grammar;
@@ -231,7 +229,8 @@ public class SpeechRecognitionResult {
 
     @Override
     public String toString() {
-      final StringBuilder sb = new StringBuilder("[");
+      final StringBuilder sb = new StringBuilder(45);
+      sb.append("[");
       sb.append("score=").append(score).append(",");
       sb.append("text='").append(text).append("',");
       sb.append("grammar='").append(grammar).append("']");

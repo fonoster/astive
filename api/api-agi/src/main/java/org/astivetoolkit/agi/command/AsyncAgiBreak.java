@@ -35,9 +35,5 @@ public class AsyncAgiBreak implements Serializable {
    */
   private static final long serialVersionUID = 0xa8da0d406d934e4bL;
 
-  /**
-   * Create a new AsyncAgiBreak object.
-   */
-  public AsyncAgiBreak() {
-  }
+
 }

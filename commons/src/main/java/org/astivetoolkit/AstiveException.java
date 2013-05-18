@@ -26,13 +26,16 @@ package org.astivetoolkit;
  * @see AgiException
  */
 public class AstiveException extends Exception {
-  /**
+  
+	private static final long serialVersionUID = 1L;
+
+/**
    * Creates a new AstiveException object with the original exception as
    * parameter to be nested as part of this exception.
    *
    * @param exception used to provide further info about the original exception.
    */
-  public AstiveException(Exception exception) {
+  public AstiveException(final Exception exception) {
     super(exception);
   }
 
@@ -41,7 +44,7 @@ public class AstiveException extends Exception {
    *
    * @param msg further info about the exception.
    */
-  public AstiveException(String msg) {
+  public AstiveException(final String msg) {
     super(msg);
   }
 
@@ -49,5 +52,6 @@ public class AstiveException extends Exception {
    * Creates a new AstiveException object.
    */
   public AstiveException() {
+	  super();
   }
 }

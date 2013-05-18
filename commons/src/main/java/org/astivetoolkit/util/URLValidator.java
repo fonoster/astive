@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
  *
  * @since 1.0.0
  */
-public class URLValidator {
+public final class URLValidator {
   /**
    * Use for exact match.
    */
@@ -58,29 +58,13 @@ public class URLValidator {
    * @param url URL to validate.
    * @return if match with a valid pattern.
    */
-  static public Boolean isValidURL(String url) {
-    if (url.trim().equals("/")) {
-      return true;
-    }
-
-    Boolean match = SLASH_SLASH_ASTIVLET.matcher(url).find();
-
-    if (match) {
-      return true;
-    }
-
-    match = SLASH_SLASH_ASTERISK.matcher(url).find();
-
-    if (match) {
-      return true;
-    }
-
-    match = ASTERISK_EXTENSION.matcher(url).find();
-
-    if (match) {
-      return true;
-    }
-
-    return false;
+  static public Boolean isValidURL(final String url) {
+       
+    return  (url.trim().equals("/") 
+    		|| SLASH_SLASH_ASTIVLET.matcher(url).find()
+    		|| SLASH_SLASH_ASTERISK.matcher(url).find()
+    		|| ASTERISK_EXTENSION.matcher(url).find());
+    		
   }
+  
 }

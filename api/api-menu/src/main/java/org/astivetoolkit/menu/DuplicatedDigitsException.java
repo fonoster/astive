@@ -22,14 +22,21 @@ package org.astivetoolkit.menu;
 import org.astivetoolkit.util.AppLocale;
 
 /**
- *
+ * 
  * @since 1.0.0
  */
 public class DuplicatedDigitsException extends RuntimeException {
-  private static final String msg = AppLocale.getI18n("exeption.DuplicatedKeyInMenuException");
 
-  /** <p>Creates a new instance of DuplicatedDigitsException</p> */
-  public DuplicatedDigitsException() {
-    super(msg);
-  }
+	private static final long serialVersionUID = 1L;
+	private static final String MSG = AppLocale
+			.getI18n("exeption.DuplicatedKeyInMenuException");
+
+	/**
+	 * <p>
+	 * Creates a new instance of DuplicatedDigitsException
+	 * </p>
+	 */
+	public DuplicatedDigitsException() {
+		super(DuplicatedDigitsException.MSG);
+	}
 }

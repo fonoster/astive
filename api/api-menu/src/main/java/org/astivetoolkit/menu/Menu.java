@@ -40,13 +40,13 @@ import org.astivetoolkit.menu.action.Action;
  * @see MenuItem
  */
 public class Menu extends MenuItem {
-  private ArrayList<MenuItem> childs = new ArrayList();
-  private ArrayList<FailListener> failListenerList = new ArrayList();
-  private ArrayList<InterDigitsTimeoutListener> interDigitsTimeoutListenerList = new ArrayList();
-  private ArrayList<MaxFailureListener> maxFailureListenerList = new ArrayList();
-  private ArrayList<MaxTimeoutListener> maxTimeoutListenerList = new ArrayList();
-  private ArrayList<PositionChangeListener> positionChangeListenerList = new ArrayList();
-  private ArrayList<TimeoutListener> timeoutListenerList = new ArrayList();
+  private ArrayList<MenuItem> childs = new ArrayList<MenuItem>();
+  private ArrayList<FailListener> failListenerList = new ArrayList<FailListener>();
+  private ArrayList<InterDigitsTimeoutListener> interDigitsTimeoutListenerList = new ArrayList<InterDigitsTimeoutListener>();
+  private ArrayList<MaxFailureListener> maxFailureListenerList = new ArrayList<MaxFailureListener>();
+  private ArrayList<MaxTimeoutListener> maxTimeoutListenerList = new ArrayList<MaxTimeoutListener>();
+  private ArrayList<PositionChangeListener> positionChangeListenerList = new ArrayList<PositionChangeListener>();
+  private ArrayList<TimeoutListener> timeoutListenerList = new ArrayList<TimeoutListener>();
   private String exitFile;
   private String greetingsFile;
   private String invalidDigitFile;
@@ -68,19 +68,20 @@ public class Menu extends MenuItem {
    * <p>Creates a new instance of Menu</p>
    */
   public Menu() {
+	  super();
   }
 
   /**
    * <p>Creates a new instance of Menu</p>
    */
-  public Menu(String digits, String file) {
+  public Menu(final String digits, final String file) {
     super(digits, file);
   }
 
   /**
    * <p>Creates a new instance of Menu</p>
    */
-  public Menu(String digits, String file, Action action) {
+  public Menu(final String digits, final String file, final Action action) {
     super(digits, file, action);
   }
 
@@ -178,7 +179,7 @@ public class Menu extends MenuItem {
    *
    * @param evt DOCUMENT ME!
    */
-  protected void fireFailListener_failurePerform(FailEvent evt) {
+  protected void fireFailListenerFailurePerform(FailEvent evt) {
     for (FailListener listener : failListenerList) {
       listener.failurePerform(evt);
     }
@@ -211,7 +212,7 @@ public class Menu extends MenuItem {
    *
    * @param evt DOCUMENT ME!
    */
-  protected void fireMaxTimeoutEvent_maxTimeoutPerform(MaxTimeoutEvent evt) {
+  protected void fireMaxTimeoutEventMaxTimeoutPerform(MaxTimeoutEvent evt) {
     for (MaxTimeoutListener listener : maxTimeoutListenerList) {
       listener.maxTimeoutPerform(evt);
     }
@@ -222,7 +223,7 @@ public class Menu extends MenuItem {
    *
    * @param evt DOCUMENT ME!
    */
-  protected void firePositionChangeEvent_positionChange(PositionChangeEvent evt) {
+  protected void firePositionChangeEventPositionChange(PositionChangeEvent evt) {
     for (PositionChangeListener listener : positionChangeListenerList) {
       listener.positionChange(evt);
     }
@@ -233,7 +234,7 @@ public class Menu extends MenuItem {
    *
    * @param evt DOCUMENT ME!
    */
-  protected void fireTimeoutListener_timeoutPerform(TimeoutEvent evt) {
+  protected void fireTimeoutListenerTimeoutPerform(TimeoutEvent evt) {
     for (TimeoutListener listener : timeoutListenerList) {
       listener.timeoutPerform(evt);
     }
