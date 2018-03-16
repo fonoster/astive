@@ -12,7 +12,7 @@ ATK makes creating voice applications easier for developers, however, it is impo
 
 ## Requirements
 
-* Java 1.7+
+* Java 1.8+
 * Maven 3.x.x+
 * Asterisk 1.8+
 * Git (optional)

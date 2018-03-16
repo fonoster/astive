@@ -5,4 +5,6 @@ services:
       context: .
     image: fonoster/astive:latest
     ports:
-      - '27017:27017'
+      - '4573:4573'
+      - '4200:4200'
+      - '4202:4202'
