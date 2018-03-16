@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+  astive:
+    build:
+      context: .
+    image: fonoster/astive:latest
+    ports:
+      - '27017:27017'

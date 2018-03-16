@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.astivetoolkit</groupId>
         <artifactId>astivetoolkit</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.7-SNAPSHOT</version>
     </parent>
     <groupId>org.astivetoolkit.examples</groupId>
     <artifactId>examples</artifactId>
