@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.astivetoolkit</groupId>
         <artifactId>server</artifactId>
-        <version>1.0.7</version>
+        <version>1.0.8-SNAPSHOT</version>
     </parent>
     <artifactId>atk-server-client</artifactId>
     <name>Astive Toolkit :: Server :: Client</name>

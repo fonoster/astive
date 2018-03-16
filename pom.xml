@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.astivetoolkit</groupId>
     <artifactId>astivetoolkit</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8-SNAPSHOT</version>
     <name>Astive Toolkit</name>
     <packaging>pom</packaging>
 
@@ -50,7 +50,7 @@
 
     <scm>
         <developerConnection>scm:git:http://github.com/fonoster/astivetoolkit</developerConnection>
-      <tag>v1.0.7</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <build>

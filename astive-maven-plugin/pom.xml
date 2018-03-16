@@ -3,7 +3,7 @@
     <parent>
         <artifactId>astivetoolkit</artifactId>
         <groupId>org.astivetoolkit</groupId>
-        <version>1.0.7</version>
+        <version>1.0.8-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -28,12 +28,12 @@
         <dependency>
             <groupId>org.astivetoolkit</groupId>
             <artifactId>atk-server-core</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.astivetoolkit</groupId>
             <artifactId>atk-server-core</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
