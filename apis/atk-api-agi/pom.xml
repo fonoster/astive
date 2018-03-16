@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.astivetoolkit</groupId>
         <artifactId>apis</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.7</version>
     </parent>
     <artifactId>atk-api-agi</artifactId>
     <name>Astive Toolkit :: API :: AGI</name>

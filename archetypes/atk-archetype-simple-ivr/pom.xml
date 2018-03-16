@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.astivetoolkit.archetypes</groupId>
         <artifactId>archetypes</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.7</version>
     </parent>
     <artifactId>atk-archetype-simple-ivr</artifactId>
     <name>Astive Toolkit :: Archetype :: Simple IVR</name>
