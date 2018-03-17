@@ -1,22 +1,26 @@
-FROM openjdk:8-jdk
+FROM alpine
 
 ENV ASTIVE_VERSION 1.0.7
 ENV ASTIVE_HOME=/opt/astive
 ENV ASTIVE_APPS=/opt/astive/apps
 
-WORKDIR /etc
+WORKDIR /tmp
 
 RUN wget https://github.com/fonoster/astivetoolkit/archive/v$ASTIVE_VERSION.tar.gz \
-    && apt-get update \
-    && apt-get install maven -y \
+    && apk update \
+    && apk add openjdk8 \
+    && apk add maven \
     && tar xvf v$ASTIVE_VERSION.tar.gz \
     && cd astivetoolkit-$ASTIVE_VERSION \
     && ./assembly \
     && cd dist \
     && tar xvf astivetoolkit-server-$ASTIVE_VERSION.tar.gz \
-    && mv astivetoolkit-server-$ASTIVE_VERSION /opt/astive \
-    && rm -rf astivetoolkit-server-$ASTIVE_VERSION.tar.gz /etc/astivetoolkit* \
-    && apt-get remove maven -y
+    && mkdir -p $ASTIVE_HOME \
+    && mv astivetoolkit-server-$ASTIVE_VERSION/* /opt/astive \
+    && apk del maven \
+    && apk del openjdk8 \
+    && apk add openjdk8-jre-base \
+    && rm -rf /var/cache/apk/* /tmp/astivetoolkit*
 
 WORKDIR $ASTIVE_HOME
 
