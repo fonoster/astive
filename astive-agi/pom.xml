@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.fonoster</groupId>
         <artifactId>astive</artifactId>
-        <version>1.0.9</version>
+        <version>1.0.10-SNAPSHOT</version>
     </parent>
     <artifactId>astive-agi</artifactId>
     <name>Astive :: AGI API</name>
