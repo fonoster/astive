@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fonoster</groupId>
     <artifactId>astive</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.8-SNAPSHOT</version>
     <name>Astive</name>
     <packaging>pom</packaging>
 
@@ -52,7 +52,7 @@
 
     <scm>
         <developerConnection>scm:git:http://github.com/fonoster/astive</developerConnection>
-      <tag>v1.0.8</tag>
+      <tag>v1.0.8-SNAPSHOT</tag>
   </scm>
 
     <build>
