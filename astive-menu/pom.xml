@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.fonoster</groupId>
         <artifactId>astive</artifactId>
-        <version>1.0.9-SNAPSHOT</version>
+        <version>1.0.9</version>
     </parent>
     <artifactId>astive-menu</artifactId>
     <name>Astive :: Menu API</name>
