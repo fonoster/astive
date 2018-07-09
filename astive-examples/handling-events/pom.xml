@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.fonoster</groupId>
         <artifactId>astive-examples</artifactId>
-        <version>1.0.8-SNAPSHOT</version>
+        <version>1.0.8</version>
     </parent>
     <artifactId>handling-events</artifactId>
     <name>Astive :: Example :: Handling Events</name>
