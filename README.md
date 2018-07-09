@@ -1,4 +1,4 @@
-# ATK: Toolkit and Application Server for Asterisk PBX
+# Astive is a FastAGI Server for Asterisk PBX
 
 **Astive** was designed to overcome the complexity of building custom voice applications with Asterisk PBX. Astive, uses Asterisk's AGI to create powerful interactive menus with Java.
 
