@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fonoster</groupId>
     <artifactId>astive</artifactId>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.0.8</version>
     <name>Astive</name>
     <packaging>pom</packaging>
 
@@ -41,13 +41,18 @@
     </developers>
 
     <modules>
-        <module>mods</module>
-        <module>examples</module>
+        <module>astive-commons</module>
+        <module>astive-agi</module>
+        <module>astive-menu</module>
+        <module>astive-client</module>
+        <module>astive-server-telnet</module>
+        <module>astive-server</module>
+        <module>astive-examples</module>
     </modules>
 
     <scm>
         <developerConnection>scm:git:http://github.com/fonoster/astive</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v1.0.8</tag>
   </scm>
 
     <build>

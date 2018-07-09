@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.fonoster</groupId>
+        <artifactId>astive-examples</artifactId>
+        <version>1.0.8</version>
+    </parent>
+    <artifactId>handling-events</artifactId>
+    <name>Astive :: Example :: Handling Events</name>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-client</artifactId>
+            <version>[1.0.0-RC1,)</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-agi</artifactId>
+            <version>[1.0.0-RC1,)</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-menu</artifactId>
+            <version>[1.0.0-RC1,)</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-server</artifactId>
+            <version>[1.0.0-RC1,)</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+</project>
