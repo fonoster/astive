@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.fonoster</groupId>
         <artifactId>astive</artifactId>
-        <version>1.0.8-SNAPSHOT</version>
+        <version>1.0.8</version>
     </parent>
     <artifactId>astive-server</artifactId>
     <name>Astive :: Server</name>
