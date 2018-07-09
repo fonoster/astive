@@ -46,7 +46,7 @@
     </modules>
 
     <scm>
-        <developerConnection>scm:git:http://github.com/fonoster/astivetoolkit</developerConnection>
+        <developerConnection>scm:git:http://github.com/fonoster/astive</developerConnection>
       <tag>HEAD</tag>
   </scm>
 
@@ -139,10 +139,9 @@
                 <version>2.4</version>
                 <configuration>
                     <descriptors>
-                        <descriptor>src/main/resources/sdk-assembly.xml</descriptor>
                         <descriptor>src/main/resources/server-assembly.xml</descriptor>
                     </descriptors>
-                    <finalName>astivetoolkit</finalName>
+                    <finalName>astive</finalName>
                     <outputDirectory>dist</outputDirectory>
                     <workDirectory>target/assembly/astive-${pr}</workDirectory>
                 </configuration>
@@ -202,10 +201,9 @@
                         <version>2.4</version>
                         <configuration>
                             <descriptors>
-                                <descriptor>src/main/resources/sdk-assembly.xml</descriptor>
                                 <descriptor>src/main/resources/server-assembly.xml</descriptor>
                             </descriptors>
-                            <finalName>astivetoolkit</finalName>
+                            <finalName>astive</finalName>
                             <outputDirectory>dist</outputDirectory>
                             <workDirectory>target/assembly/astive-${project.version}</workDirectory>
                         </configuration>
@@ -260,10 +258,9 @@
                         <version>2.4</version>
                         <configuration>
                             <descriptors>
-                                <descriptor>src/main/resources/sdk-assembly.xml</descriptor>
                                 <descriptor>src/main/resources/server-assembly.xml</descriptor>
                             </descriptors>
-                            <finalName>astivetoolkit</finalName>
+                            <finalName>astive</finalName>
                             <outputDirectory>dist</outputDirectory>
                             <workDirectory>target/assembly/astive-${project.version}</workDirectory>
                         </configuration>

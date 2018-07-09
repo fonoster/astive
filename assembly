@@ -36,11 +36,11 @@ echo "\nPlease wait, this may take few minutes...\n"
 mvn -q install assembly:assembly -DskipTests=true $OPTIONS
 
 if [ $? = 0 ]; then
-    echo " * Congratulations, you have assembled a new astive-server and astive-sdk"
-    echo " * Your assemblies can be found in folder 'dist'."
+    echo " * Congratulations, you have assembled a fresh astive-server"
+    echo " * Your assembly can be found in folder 'dist'."
 else
     echo " * Something when wrong with Astives."
 fi
 
-echo "\nHome Page: http://astivetoolkit.org"
+echo "\nHome Page: http://github.com/fonoster/astive"
 echo "Report bugs to: fonosterteam@fonoster.com"
