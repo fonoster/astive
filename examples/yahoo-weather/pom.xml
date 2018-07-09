@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.astivetoolkit.examples</groupId>
+        <groupId>com.fonoster.astive.examples</groupId>
         <artifactId>examples</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
@@ -12,7 +12,7 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.astivetoolkit</groupId>
+            <groupId>com.fonoster.astive</groupId>
             <artifactId>atk-server-client</artifactId>
             <version>[1.0.0-RC1,)</version>
 	        <scope>provided</scope>

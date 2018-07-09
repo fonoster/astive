@@ -1,7 +1,7 @@
 Copyright (C) ${year} by Fonoster Inc (http://fonoster.com)
-http://astivetoolkit.org
+http://github.com/fonoster/astive
 
-This file is part of Astive Toolkit(ATK)
+This file is part of Astive
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with

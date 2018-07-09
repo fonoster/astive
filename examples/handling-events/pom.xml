@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.astivetoolkit.examples</groupId>
+        <groupId>com.fonoster.astive.examples</groupId>
         <artifactId>examples</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
@@ -11,22 +11,22 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.astivetoolkit</groupId>
+            <groupId>com.fonoster.astive</groupId>
             <artifactId>atk-server-client</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>org.astivetoolkit</groupId>
+            <groupId>com.fonoster.astive</groupId>
             <artifactId>atk-api-agi</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>org.astivetoolkit</groupId>
+            <groupId>com.fonoster.astive</groupId>
             <artifactId>atk-api-menu</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>org.astivetoolkit</groupId>
+            <groupId>com.fonoster.astive</groupId>
             <artifactId>atk-server-core</artifactId>
             <version>[1.0.0-RC1,)</version>
             <type>jar</type>

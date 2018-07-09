@@ -1,13 +1,11 @@
-Astive Toolkit (ATK) is an Open Source project sponsored by [Fonoster, Inc](https://fonoster.com). If you are interested in building communication systems using SIP you may also want to check [Sip I/O](https://github.com/psanders/sip.io), a new Sip Server built at Fonoster Inc.
-
 # ATK: Toolkit and Application Server for Asterisk PBX
 
-Astive Toolkit(ATK) was designed to overcome the complexity of building custom voice applications on Asterisk PBX. ATK, uses Asterisk's AGI and AMI to create powerful interactive menus with Java. Most of ATK functions can be replaced to allow third-parties implementations or services.
+**Astive** was designed to overcome the complexity of building custom voice applications with Asterisk PBX. Astive, uses Asterisk's AGI to create powerful interactive menus with Java.
 
-ATK makes creating voice applications easier for developers, however, it is important to have a good Asterisk foundation. To learn some key concepts and get up and running, check out the following tutorials:
+Astive makes creating voice applications easier for developers, however, it is important to have a good Asterisk foundation. To learn some key concepts and get up and running, check out the following tutorials:
 
 * [Getting started with Astivlets](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-Getting-Started-With-Astivlets)
-* [How to get ATK up and running](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-How-to-get-ATK-up-and-running)
+* [How to get Astive up and running](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-How-to-get-ATK-up-and-running)
 * [Exploring the capabilities of the Menu API](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-Exploring-the-capabilities-of-the-Menu-API)
 
 ## Requirements
@@ -19,10 +17,10 @@ ATK makes creating voice applications easier for developers, however, it is impo
 
 ## Getting Astive
 
-To download and build ATK perform the following steps in your console:
+To download and build **Astive** perform the following steps in your console:
 
 ```bash
-git clone https://github.com/fonoster/astivetoolkit.git
+git clone https://github.com/fonoster/astive.git
 cd astivetoolkit
 ./assembly
 ```
@@ -31,7 +29,7 @@ NOTE: The script will generate the Astive Server and the SDK. You can find the a
 
 ## Getting started with Astive
 
-A good way to start building apps with Astive is by reading the [wiki](https://github.com/fonoster/astivetoolkit/wiki/GuideHelloWorldTutorial). There you will find detail information in how to build, test, and deploy your apps.
+A good way to start building apps with Astive is by reading the [wiki](https://github.com/fonoster/astive/wiki/GuideHelloWorldTutorial). There you will find detail information in how to build, test, and deploy your apps.
 
 ## Getting help
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.astivetoolkit</groupId>
-    <artifactId>astivetoolkit</artifactId>
+    <groupId>com.fonoster</groupId>
+    <artifactId>astive</artifactId>
     <version>1.0.8-SNAPSHOT</version>
-    <name>Astive Toolkit</name>
+    <name>Astive</name>
     <packaging>pom</packaging>
 
     <description>Astive is a toolkit and server for Java that provides an extensible architecture for developing,
         maintaining, and deploying telephony applications.
     </description>
 
-    <url>http://astivetoolkit.org</url>
+    <url>http://github.com/fonoster/astive</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -41,11 +41,7 @@
     </developers>
 
     <modules>
-        <module>atk-commons</module>
-        <module>apis</module>
-        <module>server</module>
-        <module>archetypes</module>
-        <module>astive-maven-plugin</module>
+        <module>mods</module>
     </modules>
 
     <scm>
@@ -114,7 +110,7 @@
                 <version>2.9</version>
                 <configuration>
                     <excludePackageNames>
-                        org.astivetoolkit.util:org.astivetoolkit.agi.annotations:org.astivetoolkit.examples:org.astivetoolkit.server:noNamespace:
+                        com.fonoster.astive.util:com.fonoster.astive.agi.annotations:com.fonoster.astive.examples:com.fonoster.astive.server:noNamespace:
                     </excludePackageNames>
                 </configuration>
             </plugin>

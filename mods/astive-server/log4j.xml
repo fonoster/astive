@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "dtds/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/var/log/astive/astive.log" />
+        <param name="MaxFileSize" value="2000000" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="WARNING" />
+            <param name="levelMax" value="FATAL" />
+        </filter>
+    </appender>
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <!-- Print the date in ISO 8601 format -->
+            <param name="ConversionPattern" value="[%-5p] %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="WARNING" />
+            <param name="levelMax" value="FATAL" />
+        </filter>
+    </appender>
+    <logger name="com.fonoster.astive.server">
+        <level value="debug"/>
+        <appender-ref ref="fileAppender" />
+        <appender-ref ref="consoleAppender" />
+    </logger>
+    <logger name="com.fonoster.astive.server.loader">
+        <level value="debug"/>
+        <appender-ref ref="fileAppender" />
+        <appender-ref ref="consoleAppender" />
+    </logger>
+</log4j:configuration>

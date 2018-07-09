@@ -40,7 +40,7 @@
                 <unpack>false</unpack>
             </binaries>
             <includes>
-                <include>org.astivetoolkit.archetypes:atk-archetype-simple-ivr</include>
+                <include>com.fonoster.astive.archetypes:atk-archetype-simple-ivr</include>
             </includes>
         </moduleSet>
     </moduleSets>

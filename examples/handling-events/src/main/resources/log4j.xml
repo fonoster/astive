@@ -7,27 +7,27 @@
             <param name="ConversionPattern" value="[%-5p] %m%n" />
         </layout>
     </appender>
-   <logger name="org.astivetoolkit.server">
+   <logger name="com.fonoster.astive.server">
         <level value="trace"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-   <logger name="org.astivetoolkit.server.admin">
+   <logger name="com.fonoster.astive.server.admin">
         <level value="trace"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-   <logger name="org.astivetoolkit.api.agi">
+   <logger name="com.fonoster.astive.api.agi">
         <level value="trace"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-   <logger name="org.astivetoolkit.api.agi.command">
+   <logger name="com.fonoster.astive.api.agi.command">
         <level value="trace"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-   <logger name="org.astivetoolkit.api.agi.fastagi">
+   <logger name="com.fonoster.astive.api.agi.fastagi">
         <level value="trace"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />

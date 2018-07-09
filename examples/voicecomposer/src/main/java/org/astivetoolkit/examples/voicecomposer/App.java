@@ -1,8 +1,8 @@
 /* 
  * Copyright (C) 2017 by Fonoster Inc (http://fonoster.com)
- * http://astivetoolkit.org
+ * http://github.com/fonoster/astive
  *
- * This file is part of Astive Toolkit(ATK)
+ * This file is part of Astive
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with
@@ -16,20 +16,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.astivetoolkit.examples.voicecomposer;
+package com.fonoster.astive.examples.voicecomposer;
 
 import static java.lang.System.out;
 import java.util.Date;
 import java.util.TimeZone;
-import org.astivetoolkit.agi.AgiException;
-import org.astivetoolkit.astivlet.Astivlet;
-import org.astivetoolkit.astivlet.AstivletRequest;
-import org.astivetoolkit.astivlet.AstivletResponse;
-import org.astivetoolkit.menu.*;
-import org.astivetoolkit.menu.event.DigitsEvent;
-import org.astivetoolkit.menu.event.DigitsListener;
-import org.astivetoolkit.menu.event.KeyEvent;
-import org.astivetoolkit.menu.event.KeyListener;
+import com.fonoster.astive.agi.AgiException;
+import com.fonoster.astive.astivlet.Astivlet;
+import com.fonoster.astive.astivlet.AstivletRequest;
+import com.fonoster.astive.astivlet.AstivletResponse;
+import com.fonoster.astive.menu.*;
+import com.fonoster.astive.menu.event.DigitsEvent;
+import com.fonoster.astive.menu.event.DigitsListener;
+import com.fonoster.astive.menu.event.KeyEvent;
+import com.fonoster.astive.menu.event.KeyListener;
 
 /**
  * VoiceComposer example.

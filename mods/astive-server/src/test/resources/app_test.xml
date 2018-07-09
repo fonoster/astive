@@ -1,0 +1,21 @@
+<!-- Test a duplicate astivlet ID -->
+<app>
+    <name>ah</name>        
+    <description>Multi module app.</description>
+    <astivlet>
+        <astivletId>HelloWorld</astivletId>
+        <class>com.fonoster.astive.examples.HelloWorld</class>
+    </astivlet>
+    <astivlet>
+        <astivletId>HelloWorld</astivletId>
+        <class>com.fonoster.astive.HelloWorld2</class>
+    </astivlet>
+    <astivletMapping>
+        <astivletId>HelloWorld2</astivletId>
+        <urlPattern>/examples/HelloWorld2</urlPattern>
+    </astivletMapping>
+    <astivletMapping>
+        <astivletId>HelloWorld2</astivletId>
+        <urlPattern>/examples/HelloWorld</urlPattern>
+    </astivletMapping>
+</app>

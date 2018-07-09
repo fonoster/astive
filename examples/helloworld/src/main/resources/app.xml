@@ -4,7 +4,7 @@
     <description>Ready to hear the monkeys?</description>
     <astivlet>
         <astivletId>HelloWorld</astivletId>
-        <class>org.astivetoolkit.examples.helloworld.App</class>
+        <class>com.fonoster.astive.examples.helloworld.App</class>
     </astivlet>
     <astivletMapping>
         <astivletId>HelloWorld</astivletId>

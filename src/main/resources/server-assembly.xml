@@ -73,8 +73,8 @@
                 </dependencySets>
             </binaries>
             <excludes>
-                <exclude>org.astivetoolkit.archetypes:*</exclude>
-                <exclude>org.astivetoolkit.examples:*</exclude>
+                <exclude>com.fonoster.astive.archetypes:*</exclude>
+                <exclude>com.fonoster.astive.examples:*</exclude>
             </excludes>
         </moduleSet>
     </moduleSets>

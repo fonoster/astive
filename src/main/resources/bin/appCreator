@@ -41,7 +41,7 @@ then
     exit
 fi
 
-mvn archetype:generate -DarchetypeGroupId=org.astivetoolkit.archetypes \
+mvn archetype:generate -DarchetypeGroupId=com.fonoster.astive.archetypes \
                     -DarchetypeArtifactId=atk-archetype-simple-ivr \
                     -DarchetypeVersion=${project.version} \
                     -DgroupId=$1 \

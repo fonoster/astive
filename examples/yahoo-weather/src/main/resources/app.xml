@@ -4,7 +4,7 @@
     <description>Yahoo Weather API</description>
     <astivlet>
         <astivletId>YahooWeather</astivletId>
-        <class>org.astivetoolkit.examples.ws.App</class>
+        <class>com.fonoster.astive.examples.ws.App</class>
     </astivlet>
     <astivletMapping>
         <astivletId>YahooWeather</astivletId>

@@ -4,7 +4,7 @@
     <description>...</description>
     <astivlet>
         <astivletId>VoiceComposer</astivletId>
-        <class>org.astivetoolkit.examples.voicecomposer.App</class>
+        <class>com.fonoster.astive.examples.voicecomposer.App</class>
     </astivlet>
     <astivletMapping>
         <astivletId>VoiceComposer</astivletId>

@@ -4,7 +4,7 @@
     <description>Events Driven Example</description>
     <astivlet>
         <astivletId>HandlingEvents</astivletId>
-        <class>org.astivetoolkit.examples.handlingevents.App</class>
+        <class>com.fonoster.astive.examples.handlingevents.App</class>
     </astivlet>
     <astivletMapping>
         <astivletId>HandlingEvents</astivletId>

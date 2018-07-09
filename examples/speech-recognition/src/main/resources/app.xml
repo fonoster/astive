@@ -4,7 +4,7 @@
     <description>Examples of SpeechRecognition command</description>
     <astivlet>
         <astivletId>SpeechRecognition</astivletId>
-        <class>org.astivetoolkit.examples.speechrecognition.App</class>
+        <class>com.fonoster.astive.examples.speechrecognition.App</class>
     </astivlet>
     <astivletMapping>
         <astivletId>SpeechRecognition</astivletId>

@@ -1,8 +1,8 @@
 /* 
  * Copyright (C) 2017 by Fonoster Inc (http://fonoster.com)
- * http://astivetoolkit.org
+ * http://github.com/fonoster/astive
  *
- * This file is part of Astive Toolkit(ATK)
+ * This file is part of Astive
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with
@@ -16,11 +16,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.astivetoolkit.examples.handlingevents;
+package com.fonoster.astive.examples.handlingevents;
 
 import java.io.IOException;
-import org.astivetoolkit.server.SimpleAstiveServer;
-import org.astivetoolkit.server.SystemException;
+import com.fonoster.astive.server.SimpleAstiveServer;
+import com.fonoster.astive.server.SystemException;
 
 /**
  *

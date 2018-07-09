@@ -28,4 +28,4 @@ export ASTIVE_APPS="$ASTIVE_HOME/apps"
 # Remove this comment for other than english
 #OPTIONS="-Duser.language=es -Duser.country=DO"
 
-java $OPTIONS -classpath $ASTIVE_HOME/lib/*:$ASTIVE_HOME/conf/log4j.xml org.astivetoolkit.server.AstiveServer "$@"
+java $OPTIONS -classpath $ASTIVE_HOME/lib/*:$ASTIVE_HOME/conf/log4j.xml com.fonoster.astive.server.AstiveServer "$@"

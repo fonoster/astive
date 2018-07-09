@@ -21,7 +21,7 @@ command -v mvn >/dev/null 2>&1 || { echo "I require Maven but it's not installed
 
 mvn install:install-file \
     -Dfile=atk-archetype-simple-ivr-${project.version}.jar \
-    -DgroupId=org.astivetoolkit.archetypes \
+    -DgroupId=com.fonoster.astive.archetypes \
     -DartifactId=atk-archetype-simple-ivr \
     -Dversion=${project.version} \
     -Dpackaging=jar

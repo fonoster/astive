@@ -25,4 +25,4 @@ export ASTIVE_HOME=`dirname "$0"`/..
 # Remove this comment for other than english
 #OPTIONS="-Duser.language=es -Duser.country=DO"
 
-java $OPTIONS -classpath $ASTIVE_HOME/lib/atk-commons-1.* org.astivetoolkit.Version
+java $OPTIONS -classpath $ASTIVE_HOME/lib/atk-commons-1.* com.fonoster.astive.Version

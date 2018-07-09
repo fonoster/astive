@@ -23,26 +23,26 @@
             <param name="ConversionPattern" value="%m%n" />
         </layout>
     </appender>
-    <logger name="org.astivetoolkit.server.utils.InitOutput" additivity="false">
+    <logger name="com.fonoster.astive.server.utils.InitOutput" additivity="false">
         <level value="info"/>
         <appender-ref ref="headerAppender"/>        
     </logger>
-    <logger name="org.astivetoolkit.server">
+    <logger name="com.fonoster.astive.server">
         <level value="debug"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-    <logger name="org.astivetoolkit.agi">
+    <logger name="com.fonoster.astive.agi">
         <level value="debug"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-    <logger name="org.astivetoolkit.agi.command">
+    <logger name="com.fonoster.astive.agi.command">
         <level value="debug"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
     </logger>
-    <logger name="org.astivetoolkit.agi.fastagi">
+    <logger name="com.fonoster.astive.agi.fastagi">
         <level value="debug"/>
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="fileAppender" />
