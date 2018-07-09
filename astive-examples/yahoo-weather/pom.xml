@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.fonoster</groupId>
-        <artifactId>examples</artifactId>
-        <version>1.0.8</version>
+        <artifactId>astive-examples</artifactId>
+        <version>1.0.9-SNAPSHOT</version>
     </parent>
     <artifactId>yahoo-weather</artifactId>
     <name>Astive :: Example :: Yahoo Weather</name>
