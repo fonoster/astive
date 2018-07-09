@@ -2,32 +2,32 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.fonoster.astive.examples</groupId>
+        <groupId>com.fonoster</groupId>
         <artifactId>examples</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.8-SNAPSHOT</version>
     </parent>
     <artifactId>handling-events</artifactId>
-    <name>Astive Toolkit :: Example :: Handling Events</name>
+    <name>Astive :: Example :: Handling Events</name>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>com.fonoster.astive</groupId>
-            <artifactId>atk-server-client</artifactId>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-client</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>com.fonoster.astive</groupId>
-            <artifactId>atk-api-agi</artifactId>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-agi</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>com.fonoster.astive</groupId>
-            <artifactId>atk-api-menu</artifactId>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-menu</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>com.fonoster.astive</groupId>
-            <artifactId>atk-server-core</artifactId>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-server</artifactId>
             <version>[1.0.0-RC1,)</version>
             <type>jar</type>
         </dependency>

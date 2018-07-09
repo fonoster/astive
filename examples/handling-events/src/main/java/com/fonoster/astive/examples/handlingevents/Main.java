@@ -18,9 +18,11 @@
  */
 package com.fonoster.astive.examples.handlingevents;
 
-import java.io.IOException;
+import com.fonoster.astive.AstiveException;
 import com.fonoster.astive.server.SimpleAstiveServer;
 import com.fonoster.astive.server.SystemException;
+
+import java.io.IOException;
 
 /**
  *
@@ -32,7 +34,8 @@ public class Main {
         try {
             SimpleAstiveServer server = new SimpleAstiveServer(new App());
             server.start();
-        } catch (SystemException ex) {
-        } catch (IOException ex) {}
+        } catch (AstiveException ex) {
+        } catch (IOException ex) {
+        } catch (SystemException ex) {}
     }
 }

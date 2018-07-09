@@ -3,21 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.fonoster.astive.examples</groupId>
+        <groupId>com.fonoster</groupId>
         <artifactId>examples</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.8-SNAPSHOT</version>
     </parent>
     <artifactId>voice-composer</artifactId>
-    <name>Astive Toolkit :: Example :: Voice Composer</name>
+    <name>Astive :: Example :: Voice Composer</name>
     <dependencies>
         <dependency>
-            <groupId>com.fonoster.astive</groupId>
-            <artifactId>atk-server-client</artifactId>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-client</artifactId>
             <version>[1.0.0-RC1,)</version>
         </dependency>
         <dependency>
-            <groupId>com.fonoster.astive</groupId>
-            <artifactId>atk-api-menu</artifactId>
+            <groupId>com.fonoster</groupId>
+            <artifactId>astive-menu</artifactId>
             <version>[1.0.0-RC1,]</version>
         </dependency>
     </dependencies>

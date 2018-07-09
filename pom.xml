@@ -42,6 +42,7 @@
 
     <modules>
         <module>mods</module>
+        <module>examples</module>
     </modules>
 
     <scm>
