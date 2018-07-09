@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.fonoster</groupId>
         <artifactId>astive-examples</artifactId>
-        <version>1.0.8</version>
+        <version>1.0.7-SNAPSHOT</version>
     </parent>
     <artifactId>yahoo-weather</artifactId>
     <name>Astive :: Example :: Yahoo Weather</name>
