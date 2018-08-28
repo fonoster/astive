@@ -1,0 +1,91 @@
+HelloWorld Tutorial
+-------------------
+
+Welcome to Astive Toolkit. You're checking out this tutorial because you want to know how Astive Toolkit works. This tutorial will walk you through the creation of the classic _"Hello World"_ application. The first portion explains how to get the necessary tools to create and run the application, followed by the basic configuration of Asterisk, and ending with the creation of the project.
+
+Here's what you will need:
+     
+* A running Astive Server. We will have to play a little server configuration. Make sure you have http://sourceforge.net/projects/astive/files/astivetoolkit-server-1.0.0-RC1.tar.gz/download[Astive Server 1.0.0-RC1] or greater.
+* A fresh copy of Astive SDK. This will help generate the artifacts and file structure for application.
+* Basic Java knowledge. The more object-oriented programming you've done, the better; but fear not if you're coming from the procedural school.
+
+Getting Astive Server and the SDK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, let's get a fresh copy of ATK.
+
+To get a fresh copy of Astive Server, and the SDK, please visit the project at http://sourceforge.net/projects/astive/files/?source=navbar[Source Forge] and download the latest version of the software. 
+
+To get ATK straight from source, you will need to have Maven and Git. To get and compile ATK from source perform the following commands:
+
+....
+$ git clone https://github.com/fonoster/astivetoolkit.git
+cd astivetoolkit
+$ ./assembly
+....
+
+The script will generate two packages, Astive Server and the SDK. You will find the assemblies in the folder _dist_.
+
+*Asterisk configurations*
+
+In order to receive petitions and send answers from Astive Server, you must define a _context_ inside your dialplan. This context will act as the entry-point for your application. In other words, Asterisk will use the context to hand over the control of the call-flow to Astive Server. The dialplan can be found in the file "_extension.conf_" as part of your Asterisk configuration folder. Add the following lines to your dialplan: 
+
+....
+[astive-context]
+exten => 100,1,Agi(agi://127.0.0.1/mycompany/HelloWorld)
+exten => 101,1,Background(tt-monkeys)
+....
+
+This creates an association between the extension number _"100"_ and the resource published on Astive Server. The extension _"101"_ can be use to test your configuration. 
+
+NOTE: They may be many variations to configure an extension in Asterisk, but that escapes the purpose of this guide.
+
+You will also need a Sip account to log into Asterisk and make calls to your extension; But remember this is only for development and test purposes. In production, you may need a more complex configuration. Add this to your *sip.conf*: 
+
+....
+[astive]
+type=friend
+username=astive
+secret=123
+context=astive-context
+....
+
+Great! We are halfway there. To make sure that your configuration is working properly, place a call to the extension number _"101"_ using your favorite softphone, with the username and password you've set before. You should hear a bunch of monkeys.
+
+Install the SDK
+~~~~~~~~~~~~~~~
+
+To install all maven artifacts required to build your voice applications, find and decompress the SDK you obtained during the first step of this tutorial. You can install the development kit by executing the script *installSDK*.
+
+Create the HelloWorld
+~~~~~~~~~~~~~~~~~~~~~
+
+Execute the script +./appCreator mycompany HelloWorld+. This will create a new folder named HelloWorld. Perform the following commands:
+
+....
+$ cd HelloWorld
+$ mvn package
+....
+
+Look inside _target_ for a new file named *_HelloWorld-1.0-SNAPSHOT.jar_*, your application. 
+
+Deploy and Test
+~~~~~~~~~~~~~~~
+
+We're almost done. Now we need to decompress the astive-server and change to that folder. Start the server by doing this:
+
+....
+$ ./bin/astived start -d
+....
+
+You will see something similar to this:
+
+image::guide/images/astive_server_output.png[Astive Server Output]
+
+Now, open a new command-line and move to the Astive Server folder. Deploy the HelloWorld application, by doing this:
+
+....
+$ ./bin/astived deploy [path to application]
+....
+
+The command-line running the Astive Server will show output indicating whether or not the applications has been deployed. Finally take your softphone, and call the extension _"100"_, this time you should hear the same monkeys that before, but this time coming from the application itself.

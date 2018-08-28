@@ -1,0 +1,22 @@
+An Astivlet is a small Java program that runs within an Astive Server. Astivlets receive and respond to requests from telephone systems like Asterisk. All Astivlets, inherit from class org.astivetoolkit.astivlet.Astivlet.
+
+The method service(AstivletRequest request, AstivletResponse response) acts as the entry point for your application. AstivletRequest has information about the client invoking the Astivlet, such as host, caller id, context, ANI etc. In the other hand, AstivletResponse has a set functions that you can use to control the call flow.
+
+The following UML diagram shows how an Astivlet, takes control of simple call flow:
+
+image::guide/images/uml_astivlet.png[UML Diagram For Astivlet] 
+
+In other words:
+
+Asterisk ask the Astivlet what to do with the call
+Astivlet says: "Answer"
+Asterisk answers the call
+Astivlet tells Asterisk to play file "Hello World" to the user
+Asterisk plays file "Hello World" to the user
+Astivlet tells Asterisk to hangup the call
+Asterisk ends the call
+
+Check the example github: http://bit.ly/13VqLVN
+
+In conclusion, Astivlets are very important if you are planning on using ATK as your telephony framework. They will allow you total control of the call flow and you will be able to access external resources to your Asterisk server, such as database and web services.
+

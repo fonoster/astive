@@ -1,0 +1,89 @@
+<subtitle>The Developer Guide</subtitle>
+<productname class="trade">ATK</productname>
+<productnumber>1.0.0-SNAPSHOT</productnumber>
+<edition>0.1</edition>
+<pubsnumber>1</pubsnumber>
+	<abstract>
+   		<para>This document was generated on <?dbtimestamp format="Y-m-d"?>.</para>
+   		<para>Read this book for a comprehensive guide to getting started and working
+		with Astive Toolkit. It includes details of the APIs, the
+		framework's use in different applications examples, and much more.
+		</para>
+	</abstract>
+	<corpauthor>
+		<inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="./images/atk_logo.png" format="PNG" width="100" />
+			</imageobject>
+			<textobject>
+				<phrase>Logo</phrase>
+			</textobject>
+		</inlinemediaobject>
+	</corpauthor>
+	<copyright>
+		<year>2014</year>
+		<holder>PhonyTive LLC</holder>
+	</copyright>
+  <legalnotice>
+     <para>
+        Copyright
+        <trademark class="copyright" />
+        This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+        International Public License. For more information about this license, 
+        see http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US. You are free to share, 
+        copy, distribute, display, and perform the work under the following conditions:
+        <itemizedlist mark="opencircle">
+           <listitem>
+              <para>Attribution — You must give appropriate credit, provide a link
+			to the license, and indicate if changes were made. You may do so in
+			any reasonable manner, but not in any way that suggests the licensor
+			endorses you or your use.</para>
+           </listitem>
+           <listitem override="bullet">
+              <para>NonCommercial — You may not use the material for commercial purposes.</para>
+           </listitem>
+           <listitem>
+              <para>ShareAlike — If you remix, transform, or build upon the
+			material, you must
+			distribute
+			your contributions under the same
+			license as the original.</para>
+           </listitem>
+        </itemizedlist>
+     </para>
+     <para>No additional restrictions — You may not apply legal terms or
+		technological measures that legally restrict others from doing anything the 
+		license permits.
+	 </para>
+     <para>
+        <trademark class="registered">Asterisk</trademark> is the registered trademark of Digium Inc. 
+        in the United States and other countries. All other trademarks are the property of their respective owners.</para>
+     <para>
+        <address format="linespecific">
+           <street>4B Kedenburg</street>
+           <city>Fort Benning</city>
+           ,
+           <state>GA</state>
+           <postcode>31905</postcode>
+           <country>USA</country>
+           <phone>Phone: +1 785 317 8070</phone>
+           <!--<phone>Phone: 888 733 4281</phone>
+<fax>Fax: +1 919 754 3701</fax>
+<pob>PO Box 13588</pob>
+<city>Research Triangle Park</city>
+,
+<state>GA</state>
+<postcode>27709</postcode>
+<country>USA</country>-->
+         </address>
+      </para>
+   </legalnotice>
+   <authorgroup>
+      <author>
+         <firstname>Pedro</firstname>
+         <surname>Sanders</surname>
+         <affiliation>
+            <shortaffil>PhonyTive LLC</shortaffil>
+         </affiliation>
+      </author>
+   </authorgroup> 

@@ -1,0 +1,10 @@
+Using the SDK
+-------------
+
+The Astive SDK includes tools — such as appCreator — to help you create voice applications. The appCreator is based on the maven archetype: _archetype-simple-ivr_ module and allow developers to generate the skeleton for a basic IVR, ready to be deployed into the Astive Server. 
+
+You can use _Maven Archetypes_ and therefore the _archetype-simple-ivr_ from most IDEs. But you must consult your IDE documentation for further information. 
+
+This is how you use the appCreator script:
+
+image::guide/images/atk_appcreator.png[appCreator, width=548px]

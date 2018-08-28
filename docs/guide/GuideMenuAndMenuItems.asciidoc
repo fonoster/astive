@@ -1,0 +1,128 @@
+Menu and MenuItems
+------------------
+
+The way we navigate through an IVR has a lot in common with menus in desktop and web application, a tree-like hierarchy. The class _Menu_ allows you to add other menus and items to create a nested structure that can be loaded into and engine. _Menu_ class inherits from _MenuItem_. 
+
+Menus and MenuItems can add multiple listeners (such as KeyListeners, PositionChangeListener, TimeoutListeners ...) to deliver events resulting from user's interaction. This is a simple yet powerful that will expedite the development of your application.
+
+You can combine the parameter +setMaxFailure+ and the listener +MaxFailureListener+ to react to users pressing a key/digit that is not part of the current menu.
+
+Actions
+~~~~~~~
+
+An action occurs as a result of the selection of a Menu or MenuItem. It's where you write the application logic — for example redirect the call, list options stored in a database, invoke web services — and anything that the program needs to get done. A custom action must implement the Action interface. An action may looks like:
+
+[source,java]
+public MyAction implements Action { 
+    public void doAction() { 
+        // Do something interesting 
+    } 
+} 
+
+
+Another way to add actions to a Menu or MenuItem is by adding an ActionListener. The difference is that you can add multiple Listeners and therefore run several actions at the time.
+
+Example using Menus and Actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[source,java]
+-------------------------------------------------------------------------------------------------
+Menu root = new Menu();
+MenuItem itemA = new MenuItem("1", "press-one-to-option-a");
+MenuItem itemB = new MenuItem("2", "press-two-to-option-b");
+ 
+itemA.setAction(new GoTo(agi, root)); // A built-in Action to redirect client to another menu.
+itemB.setAction(new Action() {
+    public void doAction() {
+        // Do something interesting here.
+    }
+});
+
+root.addKeyListener(new KeyListener() {
+    public void keyTyped(KeyEvent ke) {
+        // Do something interesting here.
+    }
+});
+ 
+root.addChild(itemA);
+root.addChild(itemB);
+ 
+MenuNavigator e = new MenuNavigator(response);
+ 
+try {
+    e.run(root);
+} catch (AgiException ex) {
+    out.println(ex.getMessage());
+}
+-------------------------------------------------------------------------------------------------
+
+NOTE: If have prior experience with other frameworks or libraries you will notice immediately that there is not loops in this code. This is because all the navigation process is done by the _MenuNavigator_ by using the tree-like structure of classes Menu and MenuItems.
+
+Authenticators
+~~~~~~~~~~~~~~
+
+Authentication is an optional yet important feature that you may need in various situations. With an authenticator you can restrict access to certain areas in your Menu. You must extend the Authenticator object to create your own authentication mechanism (i.e. ANY authentication).
+
+Here is an example of using Authenticator. In this example we are going to use the Automatic number identification (ANI)
+to login. Assuming that we have an external API to verify the ani, the example will be as follows:
+
+[source,java]
+-------------------------------------------------------------------------------------------------
+public class ANIAuthenticator extends Authenticator {
+    
+    private String pin;
+    private AstivletRequest request;
+    private AstivletResponse response;
+    
+    public ANIAuthenticator(AstivletRequest request, AstivletResponse response) {
+        this.request = request;
+        this.response = response;
+        setAuthenticated(false);
+    }
+    
+    public void signIn() {
+        // Some external API
+        if(isANYRegistered(request.getCallingAni2())) {
+            response.streamFile("welcome-sound");
+            setAuthenticated(true); 
+        } else {
+            response.streamFile("authentication-denied-sound");
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------
+
+The method +setAuthenticator+ of the Menu class is available to add the authentication mechanism. In the same note, you can use the method +setMaxAuth+ of the abstract class Authenticator to define the maximum attempts to login before the call gets dropped. 
+
+TIP: Use the AuthenticatonListener to acknowledge the success/failure of the login attempt.
+
+VoiceComposition and VoiceComposer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The last thing that we are going to discuss in this chapter is +VoiceComposition+ and +VoiceComposer+. In some circumstances, the use of a pre-recorded audio may not be enough for your menu, and you may need for instance a combination of phonetic stream, followed by a silence, followed by date. To handle that, you can use VoiceComposition which is a sequence of commands combine to create a message.
+
+To create your message you'll use the +VoiceComposer+ using whatever combination of functions. The following example, may clarify the use this classes.
+
+[source,java]
+-------------------------------------------------------------------------------------------------
+Date today = new Date();
+VoiceComposition vc = VoiceComposer
+        .withEscapeDigits("12345")                
+        .withTimeZone(TimeZone.getDefault())
+        .streamFile("date")
+        .streamFile("is")                                
+        .addSilence(1)
+        .sayDate(today)
+        .addSilence(1)
+        .withEscapeDigits("")
+        .streamFile("new-york")
+        .sayAlpha("newyork").create();
+Menu m = new Menu();
+m.addVoiceComposition(vc);
+-------------------------------------------------------------------------------------------------
+
+That will produce a message similar to "The date is 25 April 1960. New York: N E W  Y O R K". Use the method +withEscapeDigits+ to allow stream interruption and +withTimeZone+ to define the _TimeZone_ for the function _sayDate_. The _addSilence_ function will add a silence; the parameter given is in seconds.
+
+NOTE: The use of the functions +withTimeZone(TimeZone)+, +withFormat(String)+ and +withEscapeDigits(String)+ is not retroactive, and will only affect subsequent commands. 
+
+For more details on this classes, please check the http://astivetoolkit.org/apidocs[javadocs].

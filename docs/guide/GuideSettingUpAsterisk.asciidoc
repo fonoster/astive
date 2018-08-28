@@ -1,0 +1,56 @@
+Setting Up Asterisk
+-------------------
+
+Before you can write voice applications with ATK, it's necessary to get Asterisk ready. In this chapter, I will cover the basic configurations to get you ready to code. By no means this is an extensive guide on how to configure Asterisk, I assume that you know the basics of Asterisk.
+
+It's is worth to mention that this configuration will only be useful for testing purposes, however, there are some good tutorials out there to help you archive more complicated scenarios.
+
+A good place to get help with asterisk is +voip-info.org+. Should you find problems setting up your asterisk you may ask in our Google Group.
+
+Adding a Sip Account to sip.conf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The file sip.conf contains information about sip connections. Adding a Sip account will allow you to test your IVR applications. An example of adding a Sip account would be:
+
+....
+[astive]
+type=friend
+username=astive
+secret=123
+context=astive-context
+....
+
+Configuring the extension.conf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The file extension.conf can bound a Sip account to a particular dialplan, and that's how we connect the call with an IVR application. An example would look like:
+
+....
+[astive-context]
+exten => 100,1,Agi(agi://127.0.0.1/HelloWorld)
+....
+
+Setup Asterisk Manager
+~~~~~~~~~~~~~~~~~~~~~~
+
+Before you use the Manager API on Asterisk, you must edit the _manager.conf_ file and restart Asterisk. You can also find constraints on the IP range allowed, on the manager.conf as well as username and passwords for authentication. A basic configuration may look like:
+
+....
+[general]
+enabled = yes
+port = 5038
+bindaddr = 0.0.0.0
+
+[mark]
+secret=mysecret
+permit=0.0.0.0/0.0.0.0
+read=all
+write=all
+....
+
+Sounds Files
+~~~~~~~~~~~~
+
+Just as in Asterisk, Astive APIs expects sounds without file extension. For example, instead of using file +helloworld.gsm+ you will only use +helloworld+. Asterisk will try to match the sound file with the extension used for the codec used. 
+
+If the language is set for the channel, Asterisk will first look for country code/filename where _countrycode_ is the language code (i.e. 'es' for spanish). Languages and special tones for countries or regions are to be found in _indications.conf_.

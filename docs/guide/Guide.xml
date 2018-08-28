@@ -1,0 +1,1928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<book lang="en">
+<bookinfo>
+    <title>Astive Toolkit</title>
+<subtitle>The Developer Guide</subtitle>
+<productname class="trade">ATK</productname>
+<productnumber>1.0.0-SNAPSHOT</productnumber>
+<edition>0.1</edition>
+<pubsnumber>1</pubsnumber>
+        <abstract>
+                <para>This document was generated on <?dbtimestamp format="Y-m-d"?>.</para>
+                <para>Read this book for a comprehensive guide to getting started and working
+                with Astive Toolkit. It includes details of the APIs, the
+                framework's use in different applications examples, and much more.
+                </para>
+        </abstract>
+        <corpauthor>
+                <inlinemediaobject>
+                        <imageobject>
+                                <imagedata fileref="./images/atk_logo.png" format="PNG" width="100" />
+                        </imageobject>
+                        <textobject>
+                                <phrase>Logo</phrase>
+                        </textobject>
+                </inlinemediaobject>
+        </corpauthor>
+        <copyright>
+                <year>2014</year>
+                <holder>PhonyTive LLC</holder>
+        </copyright>
+  <legalnotice>
+     <para>
+        Copyright
+        <trademark class="copyright" />
+        This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+        International Public License. For more information about this license,
+        see http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US. You are free to share,
+        copy, distribute, display, and perform the work under the following conditions:
+        <itemizedlist mark="opencircle">
+           <listitem>
+              <para>Attribution — You must give appropriate credit, provide a link
+                        to the license, and indicate if changes were made. You may do so in
+                        any reasonable manner, but not in any way that suggests the licensor
+                        endorses you or your use.</para>
+           </listitem>
+           <listitem override="bullet">
+              <para>NonCommercial — You may not use the material for commercial purposes.</para>
+           </listitem>
+           <listitem>
+              <para>ShareAlike — If you remix, transform, or build upon the
+                        material, you must
+                        distribute
+                        your contributions under the same
+                        license as the original.</para>
+           </listitem>
+        </itemizedlist>
+     </para>
+     <para>No additional restrictions — You may not apply legal terms or
+                technological measures that legally restrict others from doing anything the
+                license permits.
+         </para>
+     <para>
+        <trademark class="registered">Asterisk</trademark> is the registered trademark of Digium Inc.
+        in the United States and other countries. All other trademarks are the property of their respective owners.</para>
+     <para>
+        <address format="linespecific">
+           <street>4B Kedenburg</street>
+           <city>Fort Benning</city>
+           ,
+           <state>GA</state>
+           <postcode>31905</postcode>
+           <country>USA</country>
+           <phone>Phone: +1 785 317 8070</phone>
+           <!--<phone>Phone: 888 733 4281</phone>
+<fax>Fax: +1 919 754 3701</fax>
+<pob>PO Box 13588</pob>
+<city>Research Triangle Park</city>
+,
+<state>GA</state>
+<postcode>27709</postcode>
+<country>USA</country>-->
+         </address>
+      </para>
+   </legalnotice>
+   <authorgroup>
+      <author>
+         <firstname>Pedro</firstname>
+         <surname>Sanders</surname>
+         <affiliation>
+            <shortaffil>PhonyTive LLC</shortaffil>
+         </affiliation>
+      </author>
+   </authorgroup>
+</bookinfo>
+<chapter id="_getting_started">
+<title>Getting Started</title>
+<simpara>Astive Toolkit provides a robust base for your voice applications. It can handle every aspect of your project, from building the application up to deploy to production. And, since the toolkit follows principles similar to MVC, it allows you to easily customize, build and extend most aspects of your application.</simpara>
+<simpara>The toolkit also provides a basic organizational structure, based on <emphasis>Maven Archetypes</emphasis>, keeping your entire application consistent and logical. This concept is simple but powerful. Follow the conventions and you will always know exactly where things are.</simpara>
+<simpara>The best way to experience and learn Astive Toolkit is to sit down and build something. To start off, let&#8217;s build the classic <emphasis>"Hello World"</emphasis> application.</simpara>
+</chapter>
+<chapter id="_helloworld_tutorial">
+<title>HelloWorld Tutorial</title>
+<simpara>Welcome to Astive Toolkit. You&#8217;re checking out this tutorial because you want to know how Astive Toolkit works. This tutorial will walk you through the creation of the classic <emphasis>"Hello World"</emphasis> application. The first portion explains how to get the necessary tools to create and run the application, followed by the basic configuration of Asterisk, and ending with the creation of the project.</simpara>
+<simpara>Here&#8217;s what you will need:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+A running Astive Server. We will have to play a little server configuration. Make sure you have <ulink url="http://sourceforge.net/projects/astive/files/astivetoolkit-server-1.0.0-RC1.tar.gz/download">Astive Server 1.0.0-RC1</ulink> or greater.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+A fresh copy of Astive SDK. This will help generate the artifacts and file structure for application.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Basic Java knowledge. The more object-oriented programming you&#8217;ve done, the better; but fear not if you&#8217;re coming from the procedural school.
+</simpara>
+</listitem>
+</itemizedlist>
+<section id="_getting_astive_server_and_the_sdk">
+<title>Getting Astive Server and the SDK</title>
+<simpara>First, let&#8217;s get a fresh copy of ATK.</simpara>
+<simpara>To get a fresh copy of Astive Server, and the SDK, please visit the project at <ulink url="http://sourceforge.net/projects/astive/files/?source=navbar">Source Forge</ulink> and download the latest version of the software.</simpara>
+<simpara>To get ATK straight from source, you will need to have Maven and Git. To get and compile ATK from source perform the following commands:</simpara>
+<literallayout class="monospaced">$ git clone https://github.com/PhonyTive/astivetoolkit.git
+cd astivetoolkit
+$ ./assembly</literallayout>
+<simpara>The script will generate two packages, Astive Server and the SDK. You will find the assemblies in the folder <emphasis>dist</emphasis>.</simpara>
+<simpara><emphasis role="strong">Asterisk configurations</emphasis></simpara>
+<simpara>In order to receive petitions and send answers from Astive Server, you must define a <emphasis>context</emphasis> inside your dialplan. This context will act as the entry-point for your application. In other words, Asterisk will use the context to hand over the control of the call-flow to Astive Server. The dialplan can be found in the file "<emphasis>extension.conf</emphasis>" as part of your Asterisk configuration folder. Add the following lines to your dialplan:</simpara>
+<literallayout class="monospaced">[astive-context]
+exten =&gt; 100,1,Agi(agi://127.0.0.1/mycompany/HelloWorld)
+exten =&gt; 101,1,Background(tt-monkeys)</literallayout>
+<simpara>This creates an association between the extension number <emphasis>"100"</emphasis> and the resource published on Astive Server. The extension <emphasis>"101"</emphasis> can be use to test your configuration.</simpara>
+<note><simpara>They may be many variations to configure an extension in Asterisk, but that escapes the purpose of this guide.</simpara></note>
+<simpara>You will also need a Sip account to log into Asterisk and make calls to your extension; But remember this is only for development and test purposes. In production, you may need a more complex configuration. Add this to your <emphasis role="strong">sip.conf</emphasis>:</simpara>
+<literallayout class="monospaced">[astive]
+type=friend
+username=astive
+secret=123
+context=astive-context</literallayout>
+<simpara>Great! We are halfway there. To make sure that your configuration is working properly, place a call to the extension number <emphasis>"101"</emphasis> using your favorite softphone, with the username and password you&#8217;ve set before. You should hear a bunch of monkeys.</simpara>
+</section>
+<section id="_install_the_sdk">
+<title>Install the SDK</title>
+<simpara>To install all maven artifacts required to build your voice applications, find and decompress the SDK you obtained during the first step of this tutorial. You can install the development kit by executing the script <emphasis role="strong">installSDK</emphasis>.</simpara>
+</section>
+<section id="_create_the_helloworld">
+<title>Create the HelloWorld</title>
+<simpara>Execute the script <literal>./appCreator mycompany HelloWorld</literal>. This will create a new folder named HelloWorld. Perform the following commands:</simpara>
+<literallayout class="monospaced">$ cd HewlloWorld
+$ mvn package</literallayout>
+<simpara>Look inside <emphasis>target</emphasis> for a new file named <emphasis role="strong"><emphasis>HelloWorld-1.0-SNAPSHOT.jar</emphasis></emphasis>, your application.</simpara>
+</section>
+<section id="_deploy_and_test">
+<title>Deploy and Test</title>
+<simpara>We&#8217;re almost done. Now we need to decompress the astive-server and change to that folder. Start the server by doing this:</simpara>
+<literallayout class="monospaced">$ ./bin/astived start -d</literallayout>
+<simpara>You will see something similar to this:</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/astive_server_output.png"/>
+  </imageobject>
+  <textobject><phrase>Astive Server Output</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Now, open a new command-line and move to the Astive Server folder. Deploy the HelloWorld application, by doing this:</simpara>
+<literallayout class="monospaced">$ ./bin/astived deploy [path to application]</literallayout>
+<simpara>The command-line running the Astive Server will show output indicating whether or not the applications has been deployed. Finally take your softphone, and call the extension <emphasis>"100"</emphasis>, this time you should hear the same monkeys that before, but this time coming from the application itself.</simpara>
+</section>
+</chapter>
+<chapter id="_installation">
+<title>Installation</title>
+<simpara>Astive Toolkit is fast and easy to install. Astive Toolkit does not support a particular database, or logging platform, its up to you to decide the libraries suitable for your voice applications. Luckily, Apache Maven has a large collection of dependencies that you can use for those purposes. It does not require of any special configuration, just download and uncompress. The minimum requirements are:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Java 6
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Maven 3.x.x.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Asterisk 1.8 or greater,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+A copy of ATK
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Having <literal>git</literal> may become handy to test new features or get a bug fix. ATK may be able to function with older versions of Asterisk and Maven, that we have not tested. Should you test prior versions, we would love to hear about your experience.</simpara>
+<section id="_license">
+<title>License</title>
+<simpara>Astive Toolkit is licensed under the Apache License 2.0. This means that you are free to modify, distribute and republish the source code on the condition that the copyright notices are left intact. You are also free to incorporate Astive Toolkit into any Commercial or closed source application.</simpara>
+</section>
+<section id="_downloading_atk">
+<title>Downloading ATK</title>
+<simpara>ATK consists in two main pieces, the Astive Server and the Development Kit. There are two main ways to get a fresh copy of ATK. You can either download the <literal>tar.gz</literal> from the main website, or checkout the code from the git repository. To download the latest major release of Astive Toolkit. Visit the main website <ulink url="http://astivetoolkit.org">http://astivetoolkit.org</ulink> and follow the download link.</simpara>
+<simpara>All current releases of ATK are hosted on <ulink url="http://github.com/PhonyTive/astivetoolkit">Github</ulink>. Github houses both ATK itself as well as many other resources for Astive Toolkit. The ATK releases are available at Github tags (<ulink url="https://github.com/PhonyTive/astivetoolkit/tags">https://github.com/PhonyTive/astivetoolkit/tags</ulink>). Alternatively you can get fresh off the press code, with all the bug fixes and up to the minute enhancements.</simpara>
+<simpara>These can be accessed from Github by cloning the following repository:</simpara>
+<literallayout class="monospaced">$ git clone git://github.com/PhonyTive/astivetoolkit.git</literallayout>
+<simpara>You will then need to assemble ATK by doing this:</simpara>
+<literallayout class="monospaced">$ cd astivetoolkit
+$ ./assembly</literallayout>
+<note><simpara>The assemblies of ATK can be found in <emphasis role="strong"><emphasis>dist</emphasis></emphasis> folder.</simpara></note>
+</section>
+<section id="_setting_up_astive_server">
+<title>Setting Up Astive Server</title>
+<simpara>Setting up Astive Server is really simple. Decompress the <emphasis>astivetoolkit-server-1.x.x.tar.gz</emphasis> that you obtained in the previous section. To test your installation get the example application <ulink url="http://astivetoolkit.org/downloads">helloworld.jar</ulink>. Then, go to your the Astive Server folder and perform the following instruction:</simpara>
+<literallayout class="monospaced">$ ./bin/astived start -d</literallayout>
+<simpara>This is going to start Astive Server in debug mode. Open another console and execute</simpara>
+<literallayout class="monospaced">$ ./bin/astived deploy [the application path]/helloworld.jar</literallayout>
+<simpara>If you performed all the steps correctly your application is ready to receive incoming connections from your Asterisk system.</simpara>
+</section>
+<section id="_installing_the_sdk">
+<title>Installing the SDK</title>
+<simpara>To install the SDK decompress the file <emphasis>astivetoolkit-sdk-1.x.x.tar.gz</emphasis> obtained in the Download ATK section of this chapter. Use the script <emphasis role="strong">installSDK</emphasis> to publish all the artifacts to your local maven repository.</simpara>
+</section>
+</chapter>
+<chapter id="_atk_overview">
+<title>ATK Overview</title>
+<simpara>Welcome to the ATK Developer Guide. This manual has been created to assist you in developing voice applications with Astive Toolkit.</simpara>
+<simpara>This manual assumes that you possess a general understanding of Java and a basic understanding of object oriented programming (OOP) as well as the basic aspects of configuring the Asterisk PBX. Functionalities within the framework structure make use of different technologies – such as XML, Asterisk – and this manual does not focus in describe those technologies, except for the role they play in context.</simpara>
+<simpara><emphasis role="strong">What is Astive Toolkit? Why Use it?</emphasis></simpara>
+<simpara>ATK (<ulink url="http://astivetoolkit.org/">http://astivetoolkit.org/</ulink>) is a free, open-source, rapid development framework for Java. Its a foundational format for programmers to create voice applications. Our primary goal is to allow you to work in a structured and rapid manner–without losing of flexibility. It&#8217;s a toolkit and server that aim to make voice application easy.</simpara>
+<simpara>ATK takes the complexity out of voice development; providing you with all the necessary tools to get started coding what you need to get done: the logic specific to your application. You won&#8217;t have to reinvent the wheel every time you sit down to a new project, just generate a skeleton with <emphasis>archetypes</emphasis> and get ready to code.</simpara>
+<simpara>In addition to keeping you from complexity, using ATK means your application’s core is well tested and is being constantly improved. Here’s a quick list of features you’ll enjoy when using ATK:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Multi-IVR applications
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Asterisk 1.8 or greater
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Compatible with Java 5 or greater
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Application-Server like operations(start, stop, undeploy, deploy&#8230;).
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Advanced API&#8217;s for IVR creation
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Support for FastAGI (AMI on the way).
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Event-driven architecture
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Code generation
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Flexible licensing (<ulink url="http://en.wikipedia.org/wiki/Apache_License">http://en.wikipedia.org/wiki/Apache_License</ulink>)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Well documented.
+</simpara>
+</listitem>
+</itemizedlist>
+<section id="_why_do_we_use_java_and_asterisk">
+<title>Why do we use Java and Asterisk?</title>
+<simpara>Asterisk, is without any doubts the most used open-source Telephony Engine in the world. It has a large community of developers, administrators and companies supporting it. With every version, they add a lot of new and exciting features and improvements.</simpara>
+<simpara>In the other hand, Java has been consistently one of the favorite programming languages. With new languages adding to the  <emphasis>JVM(Java Virtual Machine)</emphasis>  – such as <emphasis>Scala</emphasis>, <emphasis>Groovy</emphasis> and <emphasis>JRuby</emphasis> – I believe we&#8217;ll see <emphasis>Java</emphasis> for many years.</simpara>
+</section>
+<section id="_understanding_the_basics">
+<title>Understanding the Basics</title>
+<simpara>There are some basic concepts that you need to know before you start developing voice applications with ATK. In this section, I&#8217;ll describe how ATK functions in relation to Asterisk. I hope this help paint the hole picture.</simpara>
+<section id="_asterisk_pbx">
+<title>Asterisk PBX</title>
+<simpara>As mentioned earlier, Asterisk is a Telephone Engine. It was developed originally as a PBX(Private Branch Exchange) by Mark Spencer of Digium, in 1999. Since then, a large community of developers has added to their core team.</simpara>
+<simpara>Asterisk allows companies to place and receive calls coming from and to VoIP and PSTN networks. Calls can then be managed by voice applications such as IVRs, conference room, mailbox or sent to an agent. It also has multiple APIs to extend its functionalities. The two main APIs are AGI(Asterisk Gateway Interface) and AMI(Asterisk Manager Interface).</simpara>
+</section>
+<section id="_the_agi_api">
+<title>The AGI API</title>
+<simpara>Asterisk Gateway Interface (AGI ) enables external applications to take control of an Asterisk channel. ATK supports FastAGI, a version of AGI, which allows applications to take control of a channel from another location of the network.</simpara>
+</section>
+<section id="_the_ami_api">
+<title>The AMI API</title>
+<simpara>The Asterisk Manager Interface (AMI) connects a client program to an Asterisk instance and send commands or read events over a TCP/IP stream. It can be particularly useful for tracking the state of a telephony client in Asterisk, and directing that client based on custom  rules.</simpara>
+<note><simpara>This manual covers more about AGI and AMI in succeeding chapters.</simpara></note>
+</section>
+</section>
+<section id="_reporting_issues">
+<title>Reporting Issues</title>
+<simpara>The preferred place to report issues is with ATK is the Github issue tracker <ulink url="https://github.com/PhonyTive/astivetoolkit/issues">https://github.com/PhonyTive/astivetoolkit/issues</ulink>. You can also use ATK google groups <ulink url="http://groups.google.com/group/astive-toolkit">http://groups.google.com/group/astive-toolkit</ulink> to route your give report problems or give us some feedback.</simpara>
+</section>
+<section id="_where_to_get_help">
+<title>Where to Get Help</title>
+<simpara><emphasis role="strong">The Official ATK website</emphasis></simpara>
+<simpara><ulink url="http://astivetoolkit.org">http://astivetoolkit.org</ulink></simpara>
+<simpara>The Official ATK website is always a great place to visit. It features links to often-used developer tools, screencasts, and downloads.</simpara>
+<simpara><emphasis role="strong">The ATK Developer Guide</emphasis></simpara>
+<simpara><ulink url="http://book.astivetoolkit.org">http://book.astivetoolkit.org</ulink></simpara>
+<simpara>This manual cant be a great source to get answers. Keep in mind that as with many open source projects, we get new folks regularly. Do your best to answer your questions on your own first. Answers may come slower, but they remain in time – and you’ll also be helping others inside the community. Both the API and manual the have an online component.</simpara>
+<simpara><emphasis role="strong">The API</emphasis></simpara>
+<simpara><ulink url="http://astivetoolkit.org/apidocs">http://astivetoolkit.org/apidocs</ulink></simpara>
+<simpara>Straight to the point and straight from the core developers, the Astive Toolkit API (Application Programming Interface) is the most in-depth documentation around for all the essential details of the internal workings of the framework. It’s a straightforward code reference, so get your coffe cup ready.</simpara>
+<simpara><emphasis role="strong">The Google Group</emphasis></simpara>
+<simpara><ulink url="http://groups.google.com/group/astive-toolkit">http://groups.google.com/group/astive-toolkit</ulink></simpara>
+<simpara>Our Google Group can help you find archived answers, as well as frequently asked questions (FAQs), and answers to immediate problems.</simpara>
+</section>
+</chapter>
+<chapter id="_setting_up_asterisk">
+<title>Setting Up Asterisk</title>
+<simpara>Before you can write voice applications with ATK, it&#8217;s necessary to get Asterisk ready. In this chapter, I will cover the basic configurations to get you ready to code. By no means this is an extensive guide on how to configure Asterisk, I assume that you know the basics of Asterisk.</simpara>
+<simpara>It&#8217;s is worth to mention that this configuration will only be useful for testing purposes, however, there are some good tutorials out there to help you archive more complicated scenarios.</simpara>
+<simpara>A good place to get help with asterisk is <literal>voip-info.org</literal>. Should you find problems setting up your asterisk you may ask in our Google Group.</simpara>
+<section id="_adding_a_sip_account_to_sip_conf">
+<title>Adding a Sip Account to sip.conf</title>
+<simpara>The file sip.conf contains information about sip connections. Adding a Sip account will allow you to test your IVR applications. An example of adding a Sip account would be:</simpara>
+<literallayout class="monospaced">[astive]
+type=friend
+username=astive
+secret=123
+context=astive-context</literallayout>
+</section>
+<section id="_configuring_the_extension_conf">
+<title>Configuring the extension.conf</title>
+<simpara>The file extension.conf can bound a Sip account to a particular dialplan, and that&#8217;s how we connect the call with an IVR application. An example would look like:</simpara>
+<literallayout class="monospaced">[astive-context]
+exten =&gt; 100,1,Agi(agi://127.0.0.1/HelloWorld)</literallayout>
+</section>
+<section id="_setup_asterisk_manager">
+<title>Setup Asterisk Manager</title>
+<simpara>Before you use the Manager API on Asterisk, you must edit the <emphasis>manager.conf</emphasis> file and restart Asterisk. You can also find constraints on the IP range allowed, on the manager.conf as well as username and passwords for authentication. A basic configuration may look like:</simpara>
+<literallayout class="monospaced">[general]
+enabled = yes
+port = 5038
+bindaddr = 0.0.0.0
+
+[mark]
+secret=mysecret
+permit=0.0.0.0/0.0.0.0
+read=all
+write=all</literallayout>
+</section>
+<section id="_sounds_files">
+<title>Sounds Files</title>
+<simpara>Just as in Asterisk, Astive APIs expects sounds without file extension. For example, instead of using file <literal>helloworld.gsm</literal> you will only use <literal>helloworld</literal>. Asterisk will try to match the sound file with the extension used for the codec used.</simpara>
+<simpara>If the language is set for the channel, Asterisk will first look for country code/filename where <emphasis>countrycode</emphasis> is the language code (i.e. <emphasis>es</emphasis> for spanish). Languages and special tones for countries or regions are to be found in <emphasis>indications.conf</emphasis>.</simpara>
+</section>
+</chapter>
+<chapter id="_using_the_sdk">
+<title>Using the SDK</title>
+<simpara>The Astive SDK includes tools — such as appCreator — to help you create voice applications. The appCreator is based on the maven archetype: <emphasis>archetype-simple-ivr</emphasis> module and allow developers to generate the skeleton for a basic IVR, ready to be deployed into the Astive Server.</simpara>
+<simpara>You can use <emphasis>Maven Archetypes</emphasis> and therefore the <emphasis>archetype-simple-ivr</emphasis> from most IDEs. But you must consult your IDE documentation for further information.</simpara>
+<simpara>This is how you use the appCreator script:</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/atk_appcreator.png"/>
+  </imageobject>
+  <textobject><phrase>appCreator</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</chapter>
+<chapter id="_astivlets">
+<title>Astivlets</title>
+<simpara>An Astivlet is a small Java program that runs within an Astive Server. Astivlets, receive and respond to requests from telephone systems like Asterisk. All Astivlets, inherit from class <literal>org.astivetoolkit.astivlet.Astivlet</literal>.</simpara>
+<simpara>The parameter <literal>AstivletRequest</literal> has information about the client invoking the Astivlet, such as host, caller id, context, ANI etc. In the other hand, AstivletResponse has a set of functions that can be use to control the call flow. The following "dialog" illustrates how an astivlet sends instruction to the channel:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Asterisk ask the Astivlet what to do with the call
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Astivlet says: "Answer"
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Asterisk answers the call
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Astivlet tells Asterisk to play file "Hello World" to the user
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Asterisk plays file "Hello World" to the user
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Astivlet tells Asterisk to hang up the call
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Asterisk ends the call
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>An example of astovlet may look like:</simpara>
+<programlisting language="java" linenumbering="unnumbered">public class App extends Astivlet {
+    @Override
+    public void service(AstivletRequest request, AstivletResponse response) {
+        try {
+            response.answer();
+            response.streamFile("tt-monkeys");
+            response.hangup();
+        } catch (AgiException ex) {
+           out.print(ex.getMessage());
+        }
+    }
+}</programlisting>
+<tip><simpara>The method <emphasis>service</emphasis> acts as an entry point for your application.</simpara></tip>
+<section id="_urls_and_parameters">
+<title>URLs and Parameters</title>
+<simpara>As we talk before in Chapter 5, contexts are the entry-points for FastAGI applications and therefore Astive applications. Those entry-points connect to a resource in Astive Server through URLs. Your entry point may look like:</simpara>
+<literallayout class="monospaced">[astive-context]
+exten =&gt; 100,1,Agi(agi://127.0.0.1/HelloWorld)</literallayout>
+<simpara>Where <literal>HelloWorld</literal> is an unique ID inside the Astive Server, and can be configured in the app.xml in each Astive application. Arguments can be passed to an Astive application through the URL. To do so, add them as additional arguments to the <literal>AGI()</literal> application, delimited by commas. An example of an URL with arguments may look like:</simpara>
+<literallayout class="monospaced">[astive-context]
+exten =&gt; 100,1,Agi(agi://127.0.0.1/HelloWorld,arg1,arg2,arg3)</literallayout>
+<simpara>To get those arguments use the method <literal>getParameter(String)</literal>. To get the parameters, you have to use the keyword <emphasis>arg</emphasis> plus the position of the argument you&#8217;re trying to get. For example:</simpara>
+<literallayout class="monospaced">String myFirstsArgument  = astivletResponse.getParameter("arg1");
+String mySecondArgument  = astivletResponse.getParameter("arg2"); // and so forth</literallayout>
+<simpara>You can also pass parameters as in a web browser. Something like:</simpara>
+<literallayout class="monospaced">[astive-context]
+exten =&gt; 100,1,Agi(agi://127.0.0.1/HelloWorld?myName="DonQuijote"&amp;b=2)</literallayout>
+<simpara>This time, you&#8217;ll use the name of the variable.</simpara>
+<note><simpara>This last option is the preferred method</simpara></note>
+</section>
+</chapter>
+<chapter id="_the_agi_api_2">
+<title>The AGI API</title>
+<simpara>Asterisk Gateway Interface (AGI) is a language-independent programming interface for processing calls. It allows developers to write programs that control a call flow on Asterisk servers.</simpara>
+<simpara>AGI allows external programs, plug-in to the Asterisk dial plan to control functions related to voice channels. Like the CGI feature of web servers, AGI allows any language to communicate with Asterisk via stdin and stout.</simpara>
+<simpara>FastAGI is the AGI over TCP sockets. FastAGI, allows developers to run the AGI logic in a separate server so that the Asterisk server can focus in processing calls. This is the ideal solution to deploy resource intensive programs. The default TCP port for FastAGI is 4573. Like HTTP, FastAGI use Uniform Resource Identifiers (URIs) to locate applications. The URI format employed is: <literal>agi://hostname[:port][/program/path]</literal></simpara>
+<section id="_api_overview">
+<title>API Overview</title>
+<simpara>AGI has a large set of functions to control the voice channel. Here, I&#8217;m going to cover some of the most important ones including functions to gather information and play sounds.</simpara>
+<section id="_gather_information_with_agi">
+<title>Gather information with AGI</title>
+<simpara>When creating IVRs you may need to collect data resulting from user iteration. It may be a phone number, pin, credit card number etc. AGI provide us with multiple functions to gather user data. Some of this functions are:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+getData
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+streamFile
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+controlStreamFile
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+getOption
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+waitForDigit
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Each one of this functions has more than one signature, and behave slightly differently. Here are some questions to help you choose the right one: Do I need to limit the number of digits? Do I need set a timeout? Do I want to allow the user to interrupt the audio before it ends?</simpara>
+<formalpara><title><emphasis role="strong">getData</emphasis></title><para>Use this function to gather data if you like to set the maximum number of digits and timeout. By setting timeout to "-1," the function will wait forever.</para></formalpara>
+<formalpara><title><emphasis role="strong">streamFile</emphasis></title><para>This function only returns one character, which make it ideal to use in menu options. For example, if you set escapeDigits to "145" only one of those digits can stop the stream and return the value selected.</para></formalpara>
+<formalpara><title><emphasis role="strong">controlStreamFile</emphasis></title><para>Similar to streamFile, but allow the user to control the stream. So, if you want your users to be able rewind, forward or stop the stream, this is the function you want.</para></formalpara>
+<formalpara><title><emphasis role="strong">getOption</emphasis></title><para>This method behaves similar to streamFile, but allows you to set a timeout.</para></formalpara>
+<formalpara><title><emphasis role="strong">waitForDigit</emphasis></title><para>This function is straightforward. The user have to press a key under certain time, or it will return an empty character.</para></formalpara>
+<simpara>I recommend using streamFile, controlStreamFile, getOption, waitForDigit when ever you want you user to pick one out of few options. If you need you user to enter information such as credit cards, pin numbers, etc.  getData may be the best choice.</simpara>
+<simpara>Other functions to garther data and play sounds include: <literal>sayAlpha()</literal>, <literal>sayDate()</literal>, <literal>sayPhonetic()</literal> and <literal>sayDigits()</literal>. Each one of this functions play sounds base on the pass parameter. They can be used in combination with <literal>streamFile()</literal> to construct voice messages.</simpara>
+<simpara>For more info on those functions, please check the <ulink url="http://astivetoolkit.org/apidocs">javadocs</ulink>.</simpara>
+</section>
+</section>
+<section id="_some_considerations">
+<title>Some Considerations</title>
+<simpara>When using the AGI from Astive Toolkit, or any library for that matter, make sure that all functions that you are willing to use are no deprecated for your Asterisk version since they change from time to time. We strive to provide backward-compatibility, but you may come across some function that either deprecated or not implemented. If that&#8217;s the case, we ask you to report the issue so the community can take care of it.</simpara>
+</section>
+</chapter>
+<chapter id="_the_ami_api_2">
+<title>The AMI API</title>
+<simpara><emphasis>Asterisk Manager Interface (AMI)</emphasis> is a control interface that operates in client / server mode over TCP and allows control and monitoring of various aspects of Asterisk. AMI allows actions such as originate calls or checks the status of users connected to the server.</simpara>
+<simpara>AMI will be disabled by default but can be enabled by changing it in the <emphasis>manager.conf</emphasis> file. The default TCP port for AMI is <literal>5038</literal>.</simpara>
+<simpara>Clients can send commands or <emphasis>ACTIONS</emphasis> to Asterisk server and read a <emphasis>RESPONSE</emphasis> for that action. There are also <emphasis>EVENTS</emphasis> which give detailed information about the state of Asterisk. Note that permissions to <emphasis>write/read</emphasis> actions or responses are granted to users through the manager.conf.</simpara>
+<simpara>AMI has been beautifully wrapped in Java so you won&#8217;t have to worry about the complexity of the protocol. All you need to do is login to the manager using Java classes send your commands and wait for events to get published.</simpara>
+<section id="_api_overview_2">
+<title>API Overview</title>
+<simpara>As I mentioned before, we have to add a user with the necessary permits to the <emphasis>manager.conf</emphasis> before we can access the manager API. For this example we will use a generous set of permissions, but in real life you may want to be careful with this configuration.</simpara>
+<literallayout class="monospaced">[general]
+enabled=yes
+port=5038
+bindaddr=192.168.0.12
+
+[jhon]
+secret=secretpass
+permit=0.0.0.0/255.255.255.255
+deny=0.0.0.0/0.0.0.0
+read=system,call,log,verbose,command,agent,user
+write=system,call,log,verbose,command,agent,user</literallayout>
+<simpara>In the following example, you will see how easy is to use the manager API. First, you gain access to the manager by using the IP address to machine hosting the Asterisk server, as well as the user and password using the <emphasis>ManagerFactory</emphasis>. Then you can attach the event listener to the manager so you can monitor all the events happening within the session. Finally send a SIP_PEERS_ACTION to get a list with all the peers connected to the Asterisk server. Our example may look like:</simpara>
+<programlisting language="java" linenumbering="unnumbered">public static void main(String... args) {
+  Manager manager = ManagerFactory.getInstance().create("192.168.0.12", "jhon", "secretpass");
+  manager.addManagerEventListener(new ManagerEventListener() {
+    public void handleEvent(ManagerEvent me) {
+      out.println(me);
+    }
+  })
+  manager.sendAction(new SipPeersAction());
+}</programlisting>
+</section>
+<section id="_supported_actions_and_events">
+<title>Supported Actions and Events</title>
+<simpara>Here is the list of the Actions and Events that Astive Toolkit support. If you find any <emphasis role="strong"><emphasis>Action</emphasis></emphasis> or <emphasis role="strong"><emphasis>Event</emphasis></emphasis> not in the list, please submit a report so we can added to the list.</simpara>
+<section id="_actions">
+<title>Actions</title>
+<simpara>You can also see this list in the Enum class <emphasis>ActionTypeEnum.java</emphasis>.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+WAIT_EVENT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_RESET
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_RELOAD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_RULE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_PENALTY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_LOG
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_PAUSE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_REMOVE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_ADD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_SUMMARY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUES
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_LOGOFF
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENTS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+IAX_REGISTRY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+IAX_NETSTATS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+IAX_PEER_LIST
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+IAX_PEERS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDI_RESTART
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDI_SHOW_CHANNELS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDID_ND_OFF
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDID_ND_ON
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDI_DIAL_OFF_HOOK
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDI_HANGUP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DAHDI_TRANSFER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DATA_GET
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SIP_NOTIFY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SIP_SHOW_REGISTRY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SIP_QUALIFY_PEER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SIP_SHOW_PEER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SIP_PEERS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+VOICE_MAIL_USERS_LIST
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PLAY_DTMF
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SKINNY_SHOW_LINE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SKINNY_LINES
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SKINNY_SHOW_DEVICE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SKINNY_DEVICES
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEETME_LIST
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEETME_UNMUTE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEETME_MUTE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MIX_MONITOR_MUTE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+UNPAUSE_MONITOR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PAUSE_MONITOR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CHANGE_MONITOR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+STOP_MONITOR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MONITOR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGI
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AOC_MESSAGE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+JABBER_SEND
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DB_DEL_TREE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DB_DEL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DB_PUT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DB_GET
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+BRIDGE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PARK
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PARKED_CALLS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SHOW_DIAL_PLAN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MODULE_CHECK
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MODULE_LOAD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CORE_SHOW_CHANNELS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+RELOAD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CORE_STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CORE_SETTINGS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+USER_EVENT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+UPDATE_CONFIG
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SEND_TEXT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LIST_COMMANDS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MAILBOX_COUNT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MAILBOX_STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ABSOLUTE_TIMEOUT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+EXTENSION_STATE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+COMMAND
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ORIGINATE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ATXFER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+REDIRECT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LIST_CATEGORIES
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CREATE_CONFIG
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+GET_CONFIG_JSON
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+GET_CONFIG
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+GETVAR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SETVAR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PING
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+HANGUP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CHALLENGE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LOGIN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LOGOFF
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LOCAL_OPTIMIZE_AWAY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+EVENTS
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_events">
+<title>Events</title>
+<simpara>You can also see this list in the Enum class <emphasis>EventTypeEnum.java</emphasis>.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+ABSTRACT_PARKED_CALL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ABSTRACT_QUEUE_MEMBER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_CALLBACK_LOGIN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_CALLBACK_LOGOFF
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_CALLED
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_CONNECT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_DUMP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_LOGIN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENT_LOGOFF
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENTS_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+AGENTS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ALARM_CLEAR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ALARM
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CDR
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CHANNEL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CONNECT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DBGET_RESPONSE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DIAL,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DISCONNECT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+DND_STATE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+EXTENSION_STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+FAX_RECEIVED
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+HANGUP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+HOLDED_CALL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+HOLD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+JOIN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LEAVE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LINK
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LOGCHANNELEVENT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MANAGER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEET_ME
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEET_ME_JOIN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEET_ME_LEAVE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEET_ME_STOP_TALKING
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MEET_ME_TALKING
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+MESSAGE_WAITING
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+NEW_CALLER_ID
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+NEW_CHANNEL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+NEW_EXTEN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+NEW_STATE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ORIGINATE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ORIGINATE_FAILURE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ORIGINATE_SUCCESS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PARKED_CALL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PARKED_CALL_GIVE_UP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PARKED_CALLS_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PARKED_CALL_TIMEOUT
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PEER_ENTRY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PEERLIST_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+PEER_STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_ENTRY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_MEMBER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_MEMBER_PAUSED
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_MEMBER_REMOVED
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_MEMBER_STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_PARAMS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+QUEUE_STATUS_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+REGISTRY
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+RELOAD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+RENAME
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+RESPONSE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SHUTDOWN
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+STATUS_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+STATUS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+UNHOLD
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+UNLINK
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+UNPARKED_CALL
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+USER
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ZAP_SHOW_CHANNELS_COMPLETE
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+ZAP_SHOW_CHANNELS
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+UNKNOWN
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+</chapter>
+<chapter id="_menu_and_menuitems">
+<title>Menu and MenuItems</title>
+<simpara>The way we navigate through an IVR has a lot in common with menus in desktop and web application, a tree-like hierarchy. The class <emphasis>Menu</emphasis> allows you to add other menus and items to create a nested structure that can be loaded into and engine. <emphasis>Menu</emphasis> class inherits from <emphasis>MenuItem</emphasis>.</simpara>
+<simpara>Menus and MenuItems can add multiple listeners (such as KeyListeners, PositionChangeListener, TimeoutListeners &#8230;) to deliver events resulting from user&#8217;s interaction. This is a simple yet powerful that will expedite the development of your application.</simpara>
+<simpara>You can combine the parameter <literal>setMaxFailure</literal> and the listener <literal>MaxFailureListener</literal> to react to users pressing a key/digit that is not part of the current menu.</simpara>
+<section id="_actions_2">
+<title>Actions</title>
+<simpara>An action occurs as a result of the selection of a Menu or MenuItem. It&#8217;s where you write the application logic — for example redirect the call, list options stored in a database, invoke web services — and anything that the program needs to get done. A custom action must implement the Action interface. An action may looks like:</simpara>
+<programlisting language="java" linenumbering="unnumbered">public MyAction implements Action {
+    public void doAction() {
+        // Do something interesting
+    }
+}</programlisting>
+<simpara>Another way to add actions to a Menu or MenuItem is by adding an ActionListener. The difference is that you can add multiple Listeners and therefore run several actions at the time.</simpara>
+</section>
+<section id="_example_using_menus_and_actions">
+<title>Example using Menus and Actions</title>
+<programlisting language="java" linenumbering="unnumbered">Menu root = new Menu();
+MenuItem itemA = new MenuItem("1", "press-one-to-option-a");
+MenuItem itemB = new MenuItem("2", "press-two-to-option-b");
+
+itemA.setAction(new GoTo(agi, root)); // A built-in Action to redirect client to another menu.
+itemB.setAction(new Action() {
+    public void doAction() {
+        // Do something interesting here.
+    }
+});
+
+root.addKeyListener(new KeyListener() {
+    public void keyTyped(KeyEvent ke) {
+        // Do something interesting here.
+    }
+});
+
+root.addChild(itemA);
+root.addChild(itemB);
+
+MenuNavigator e = new MenuNavigator(response);
+
+try {
+    e.run(root);
+} catch (AgiException ex) {
+    out.println(ex.getMessage());
+}</programlisting>
+<note><simpara>If have prior experience with other frameworks or libraries you will notice immediately that there is not loops in this code. This is because all the navigation process is done by the <emphasis>MenuNavigator</emphasis> by using the tree-like structure of classes Menu and MenuItems.</simpara></note>
+</section>
+<section id="_authenticators">
+<title>Authenticators</title>
+<simpara>Authentication is an optional yet important feature that you may need in various situations. With an authenticator you can restrict access to certain areas in your Menu. You must extend the Authenticator object to create your own authentication mechanism (i.e. ANY authentication).</simpara>
+<simpara>Here is an example of using Authenticator. In this example we are going to use the Automatic number identification (ANI)
+to login. Assuming that we have an external API to verify the ani, the example will be as follows:</simpara>
+<programlisting language="java" linenumbering="unnumbered">public class ANIAuthenticator extends Authenticator {
+
+    private String pin;
+    private AstivletRequest request;
+    private AstivletResponse response;
+
+    public ANIAuthenticator(AstivletRequest request, AstivletResponse response) {
+        this.request = request;
+        this.response = response;
+        setAuthenticated(false);
+    }
+
+    public void signIn() {
+        // Some external API
+        if(isANYRegistered(request.getCallingAni2())) {
+            response.streamFile("welcome-sound");
+            setAuthenticated(true);
+        } else {
+            response.streamFile("authentication-denied-sound");
+        }
+    }
+}</programlisting>
+<simpara>The method <literal>setAuthenticator</literal> of the Menu class is available to add the authentication mechanism. In the same note, you can use the method <literal>setMaxAuth</literal> of the abstract class Authenticator to define the maximum attempts to login before the call gets dropped.</simpara>
+<tip><simpara>Use the AuthenticatonListener to acknowledge the success/failure of the login attempt.</simpara></tip>
+</section>
+<section id="_voicecomposition_and_voicecomposer">
+<title>VoiceComposition and VoiceComposer</title>
+<simpara>The last thing that we are going to discuss in this chapter is <literal>VoiceComposition</literal> and <literal>VoiceComposer</literal>. In some circumstances, the use of a pre-recorded audio may not be enough for your menu, and you may need for instance a combination of phonetic stream, followed by a silence, followed by date. To handle that, you can use VoiceComposition which is a sequence of commands combine to create a message.</simpara>
+<simpara>To create your message you&#8217;ll use the <literal>VoiceComposer</literal> using whatever combination of functions. The following example, may clarify the use this classes.</simpara>
+<programlisting language="java" linenumbering="unnumbered">Date today = new Date();
+VoiceComposition vc = VoiceComposer
+        .withEscapeDigits("12345")
+        .withTimeZone(TimeZone.getDefault())
+        .streamFile("date")
+        .streamFile("is")
+        .addSilence(1)
+        .sayDate(today)
+        .addSilence(1)
+        .withEscapeDigits("")
+        .streamFile("new-york")
+        .sayAlpha("newyork").create();
+Menu m = new Menu();
+m.addVoiceComposition(vc);</programlisting>
+<simpara>That will produce a message similar to "The date is 25 April 1960. New York: N E W  Y O R K". Use the method <literal>withEScapeDigits</literal> to allow stream interruption and <literal>withTimeZone</literal> to define the <emphasis>TimeZone</emphasis> for the function <emphasis>sayDate</emphasis>. The <emphasis>addSilence</emphasis> function will add a silence; the parameter given is in seconds.</simpara>
+<note><simpara>The use of the functions <literal>withTimeZone(TimeZone)</literal>, <literal>withFormat(String)</literal> and <literal>withEscapeDigits(String)</literal> is not retroactive, and will only affect subsequent commands.</simpara></note>
+<simpara>For more details on this classes, please check the <ulink url="http://astivetoolkit.org/apidocs">javadocs</ulink>.</simpara>
+</section>
+</chapter>
+<chapter id="_astive_server">
+<title>Astive Server</title>
+<simpara>Astive Server is a software that run smaller pieces of software called <ulink url="GuideAstivlets">Astivlets</ulink>. Astive Server is very similar to a Web/Application Server. It allows you perform commands such as <emphasis>start</emphasis>, <emphasis>stop</emphasis>, <emphasis>deploy</emphasis>, <emphasis>undeploy</emphasis>, run multiple Interactive Voice Response (IVR) and much more.</simpara>
+<simpara>The Astive Server can be use standalone or embedded mode. The standalone is more flexible and secure, and the preferred method for production environments, while embedded is the best option for development.</simpara>
+<simpara>The file structure of Astive Server may look like:</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/astive_server_tree.png"/>
+  </imageobject>
+  <textobject><phrase>Astive Server Files</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<section id="_setup">
+<title>Setup</title>
+<simpara>Configuration files are inside the folder <emphasis>conf</emphasis>. Configuration files include <emphasis>admin.properties</emphasis>, <emphasis>astived.properties</emphasis> and _telnetd.properties and are use to configure services with the same name. You can change IP address to what the service is bound as well as the port number. Looking inside astived.properties we have by default:</simpara>
+<literallayout class="monospaced">server      = org.astivetoolkit.server.AstiveServer
+bind        = 127.0.0.1
+port        = 4573
+disabled    = false
+threads     = 200
+onlyFrom    = localhost</literallayout>
+<simpara>Keep in mind that using <literal>onlyFrom = localhost</literal> will only allow connections from an Asterisk in the same host. If you want to disable the Admin and Telnet server you can set the parameter disable to true, and voila !</simpara>
+<tip><simpara>Use comma to separate multiple IPs(example: onlyFrom = 192.168.0.120, 192.168.0.121).</simpara></tip>
+</section>
+<section id="_embedded_server">
+<title>Embedded Server</title>
+<simpara>The embedded setup is the fastest method to get going, since you can use it from your favorite IDE.</simpara>
+<simpara>This example will help you setup an application and make it available at URL <literal>agi://127.0.0.1/helloworld</literal>. In order to embed Astive Server, you must use the implementation <emphasis role="strong"><emphasis>SimpleAstiveServer</emphasis></emphasis>. The <emphasis>SimpleAstiveServer</emphasis> is available through the Maven module atk-server-core. Add the following dependency to your application POM.</simpara>
+<programlisting language="xml" linenumbering="unnumbered">&lt;dependency&gt;
+    &lt;groupId&gt;org.astivetoolkit&lt;/groupId&gt;
+    &lt;artifactId&gt;atk-server-core&lt;/artifactId&gt;
+    &lt;version&gt;[1.0.0-RC1,)&lt;/version&gt;
+&lt;/dependency&gt;</programlisting>
+<simpara>Assuming that you have an Astivlet named MyAstivlet.java in the same package as your Main.java you can embed Astive Server by doing something like this:</simpara>
+<programlisting language="java" linenumbering="unnumbered">public class Main {
+    static public void main(String... args) {
+        try {
+        SimpleAstiveServer sas = new SimpleAstiveServer(new App())
+        sas.start()
+    } catch (SystemExceptionex) {
+    } catch (IOException ex) {}
+    }
+}</programlisting>
+<simpara>That&#8217;s it! Your Astivlet is been published using the URL in app.xml and is ready to receive calls from Asterisk.</simpara>
+</section>
+<section id="_telnet_service">
+<title>Telnet Service</title>
+<simpara>The telnet service may come handy if you are trying to perform some basic operations from a remote host within your network. The current version of telnet service support multiples commands — such as help, stop, lookup, exit, and version — which is very useful to perform basic remote actions.</simpara>
+<literallayout class="monospaced">Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Astive Remote Server Console
+type 'help' for a list of commands
+[astive]$ help
+ stop
+ help
+ lookup
+ exit
+ version
+[astive]$</literallayout>
+</section>
+</chapter>
+<appendix id="_creative_commons_license">
+<title>Creative Commons License</title>
+<section id="_creative_commons_attribution_noncommercial_sharealike_4_0">
+<title>Creative Commons Attribution-NonCommercial-ShareAlike 4.0</title>
+<literallayout class="monospaced">By exercising the Licensed Rights (defined below), You accept and agree
+to be bound by the terms and conditions of this Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International Public License
+("Public License"). To the extent this Public License may be
+interpreted as a contract, You are granted the Licensed Rights in
+consideration of Your acceptance of these terms and conditions, and the
+Licensor grants You such rights in consideration of benefits the
+Licensor receives from making the Licensed Material available under
+these terms and conditions.
+
+
+Section 1 -- Definitions.
+
+  a. Adapted Material means material subject to Copyright and Similar
+     Rights that is derived from or based upon the Licensed Material
+     and in which the Licensed Material is translated, altered,
+     arranged, transformed, or otherwise modified in a manner requiring
+     permission under the Copyright and Similar Rights held by the
+     Licensor. For purposes of this Public License, where the Licensed
+     Material is a musical work, performance, or sound recording,
+     Adapted Material is always produced where the Licensed Material is
+     synched in timed relation with a moving image.
+
+  b. Adapter's License means the license You apply to Your Copyright
+     and Similar Rights in Your contributions to Adapted Material in
+     accordance with the terms and conditions of this Public License.
+
+  c. BY-NC-SA Compatible License means a license listed at
+     creativecommons.org/compatiblelicenses, approved by Creative
+     Commons as essentially the equivalent of this Public License.
+
+  d. Copyright and Similar Rights means copyright and/or similar rights
+     closely related to copyright including, without limitation,
+     performance, broadcast, sound recording, and Sui Generis Database
+     Rights, without regard to how the rights are labeled or
+     categorized. For purposes of this Public License, the rights
+     specified in Section 2(b)(1)-(2) are not Copyright and Similar
+     Rights.
+
+  e. Effective Technological Measures means those measures that, in the
+     absence of proper authority, may not be circumvented under laws
+     fulfilling obligations under Article 11 of the WIPO Copyright
+     Treaty adopted on December 20, 1996, and/or similar international
+     agreements.
+
+  f. Exceptions and Limitations means fair use, fair dealing, and/or
+     any other exception or limitation to Copyright and Similar Rights
+     that applies to Your use of the Licensed Material.
+
+  g. License Elements means the license attributes listed in the name
+     of a Creative Commons Public License. The License Elements of this
+     Public License are Attribution, NonCommercial, and ShareAlike.
+
+  h. Licensed Material means the artistic or literary work, database,
+     or other material to which the Licensor applied this Public
+     License.
+
+  i. Licensed Rights means the rights granted to You subject to the
+     terms and conditions of this Public License, which are limited to
+     all Copyright and Similar Rights that apply to Your use of the
+     Licensed Material and that the Licensor has authority to license.
+
+  j. Licensor means the individual(s) or entity(ies) granting rights
+     under this Public License.
+
+  k. NonCommercial means not primarily intended for or directed towards
+     commercial advantage or monetary compensation. For purposes of
+     this Public License, the exchange of the Licensed Material for
+     other material subject to Copyright and Similar Rights by digital
+     file-sharing or similar means is NonCommercial provided there is
+     no payment of monetary compensation in connection with the
+     exchange.
+
+  l. Share means to provide material to the public by any means or
+     process that requires permission under the Licensed Rights, such
+     as reproduction, public display, public performance, distribution,
+     dissemination, communication, or importation, and to make material
+     available to the public including in ways that members of the
+     public may access the material from a place and at a time
+     individually chosen by them.
+
+  m. Sui Generis Database Rights means rights other than copyright
+     resulting from Directive 96/9/EC of the European Parliament and of
+     the Council of 11 March 1996 on the legal protection of databases,
+     as amended and/or succeeded, as well as other essentially
+     equivalent rights anywhere in the world.
+
+  n. You means the individual or entity exercising the Licensed Rights
+     under this Public License. Your has a corresponding meaning.
+
+
+Section 2 -- Scope.
+
+  a. License grant.
+
+       1. Subject to the terms and conditions of this Public License,
+          the Licensor hereby grants You a worldwide, royalty-free,
+          non-sublicensable, non-exclusive, irrevocable license to
+          exercise the Licensed Rights in the Licensed Material to:
+
+            a. reproduce and Share the Licensed Material, in whole or
+               in part, for NonCommercial purposes only; and
+            b. produce, reproduce, and Share Adapted Material for
+               NonCommercial purposes only.
+
+       2. Exceptions and Limitations. For the avoidance of doubt, where
+          Exceptions and Limitations apply to Your use, this Public
+          License does not apply, and You do not need to comply with
+          its terms and conditions.
+
+       3. Term. The term of this Public License is specified in Section
+          6(a).
+
+       4. Media and formats; technical modifications allowed. The
+          Licensor authorizes You to exercise the Licensed Rights in
+          all media and formats whether now known or hereafter created,
+          and to make technical modifications necessary to do so. The
+          Licensor waives and/or agrees not to assert any right or
+          authority to forbid You from making technical modifications
+          necessary to exercise the Licensed Rights, including
+          technical modifications necessary to circumvent Effective
+          Technological Measures. For purposes of this Public License,
+          simply making modifications authorized by this Section 2(a)
+          (4) never produces Adapted Material.
+
+       5. Downstream recipients.
+
+            a. Offer from the Licensor -- Licensed Material. Every
+               recipient of the Licensed Material automatically
+               receives an offer from the Licensor to exercise the
+               Licensed Rights under the terms and conditions of this
+               Public License.
+
+            b. Additional offer from the Licensor -- Adapted Material.
+               Every recipient of Adapted Material from You
+               automatically receives an offer from the Licensor to
+               exercise the Licensed Rights in the Adapted Material
+               under the conditions of the Adapter's License You apply.
+
+            c. No downstream restrictions. You may not offer or impose
+               any additional or different terms or conditions on, or
+               apply any Effective Technological Measures to, the
+               Licensed Material if doing so restricts exercise of the
+               Licensed Rights by any recipient of the Licensed
+               Material.
+
+       6. No endorsement. Nothing in this Public License constitutes or
+          may be construed as permission to assert or imply that You
+          are, or that Your use of the Licensed Material is, connected
+          with, or sponsored, endorsed, or granted official status by,
+          the Licensor or others designated to receive attribution as
+          provided in Section 3(a)(1)(A)(i).
+
+  b. Other rights.
+
+       1. Moral rights, such as the right of integrity, are not
+          licensed under this Public License, nor are publicity,
+          privacy, and/or other similar personality rights; however, to
+          the extent possible, the Licensor waives and/or agrees not to
+          assert any such rights held by the Licensor to the limited
+          extent necessary to allow You to exercise the Licensed
+          Rights, but not otherwise.
+
+       2. Patent and trademark rights are not licensed under this
+          Public License.
+
+       3. To the extent possible, the Licensor waives any right to
+          collect royalties from You for the exercise of the Licensed
+          Rights, whether directly or through a collecting society
+          under any voluntary or waivable statutory or compulsory
+          licensing scheme. In all other cases the Licensor expressly
+          reserves any right to collect such royalties, including when
+          the Licensed Material is used other than for NonCommercial
+          purposes.
+
+
+Section 3 -- License Conditions.
+
+Your exercise of the Licensed Rights is expressly made subject to the
+following conditions.
+
+  a. Attribution.
+
+       1. If You Share the Licensed Material (including in modified
+          form), You must:
+
+            a. retain the following if it is supplied by the Licensor
+               with the Licensed Material:
+
+                 i. identification of the creator(s) of the Licensed
+                    Material and any others designated to receive
+                    attribution, in any reasonable manner requested by
+                    the Licensor (including by pseudonym if
+                    designated)
+
+                ii. a copyright notice
+
+               iii. a notice that refers to this Public License
+
+                iv. a notice that refers to the disclaimer of
+                    warranties;
+                 v. a URI or hyperlink to the Licensed Material to the
+                    extent reasonably practicable
+
+            b. indicate if You modified the Licensed Material and
+               retain an indication of any previous modifications; and
+
+            c. indicate the Licensed Material is licensed under this
+               Public License, and include the text of, or the URI or
+               hyperlink to, this Public License.
+
+       2. You may satisfy the conditions in Section 3(a)(1) in any
+          reasonable manner based on the medium, means, and context in
+          which You Share the Licensed Material. For example, it may be
+          reasonable to satisfy the conditions by providing a URI or
+          hyperlink to a resource that includes the required
+          information.
+       3. If requested by the Licensor, You must remove any of the
+          information required by Section 3(a)(1)(A) to the extent
+          reasonably practicable.
+
+  b. ShareAlike.
+
+     In addition to the conditions in Section 3(a), if You Share
+     Adapted Material You produce, the following conditions also apply.
+
+       1. The Adapter's License You apply must be a Creative Commons
+          license with the same License Elements, this version or
+          later, or a BY-NC-SA Compatible License.
+
+       2. You must include the text of, or the URI or hyperlink to, the
+          Adapter's License You apply. You may satisfy this condition
+          in any reasonable manner based on the medium, means, and
+          context in which You Share Adapted Material.
+
+       3. You may not offer or impose any additional or different terms
+          or conditions on, or apply any Effective Technological
+          Measures to, Adapted Material that restrict exercise of the
+          rights granted under the Adapter's License You apply.
+
+
+Section 4 -- Sui Generis Database Rights.
+
+Where the Licensed Rights include Sui Generis Database Rights that
+apply to Your use of the Licensed Material:
+
+  a. for the avoidance of doubt, Section 2(a)(1) grants You the right
+     to extract, reuse, reproduce, and Share all or a substantial
+     portion of the contents of the database for NonCommercial purposes
+     only;
+
+  b. if You include all or a substantial portion of the database
+     contents in a database in which You have Sui Generis Database
+     Rights, then the database in which You have Sui Generis Database
+     Rights (but not its individual contents) is Adapted Material,
+     including for purposes of Section 3(b); and
+
+  c. You must comply with the conditions in Section 3(a) if You Share
+     all or a substantial portion of the contents of the database.
+
+For the avoidance of doubt, this Section 4 supplements and does not
+replace Your obligations under this Public License where the Licensed
+Rights include other Copyright and Similar Rights.
+
+
+Section 5 -- Disclaimer of Warranties and Limitation of Liability.
+
+  a. UNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE
+     EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS
+     AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF
+     ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS,
+     IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION,
+     WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR
+     PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS,
+     ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT
+     KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT
+     ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.
+
+  b. TO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE
+     TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION,
+     NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT,
+     INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES,
+     COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR
+     USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN
+     ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR
+     DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR
+     IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.
+
+  c. The disclaimer of warranties and limitation of liability provided
+     above shall be interpreted in a manner that, to the extent
+     possible, most closely approximates an absolute disclaimer and
+     waiver of all liability.
+
+
+Section 6 -- Term and Termination.
+
+  a. This Public License applies for the term of the Copyright and
+     Similar Rights licensed here. However, if You fail to comply with
+     this Public License, then Your rights under this Public License
+     terminate automatically.
+
+  b. Where Your right to use the Licensed Material has terminated under
+     Section 6(a), it reinstates:
+
+       1. automatically as of the date the violation is cured, provided
+          it is cured within 30 days of Your discovery of the
+          violation; or
+
+       2. upon express reinstatement by the Licensor.
+
+     For the avoidance of doubt, this Section 6(b) does not affect any
+     right the Licensor may have to seek remedies for Your violations
+     of this Public License.
+
+  c. For the avoidance of doubt, the Licensor may also offer the
+     Licensed Material under separate terms or conditions or stop
+     distributing the Licensed Material at any time; however, doing so
+     will not terminate this Public License.
+
+  d. Sections 1, 5, 6, 7, and 8 survive termination of this Public
+     License.
+
+
+Section 7 -- Other Terms and Conditions.
+
+  a. The Licensor shall not be bound by any additional or different
+     terms or conditions communicated by You unless expressly agreed.
+
+  b. Any arrangements, understandings, or agreements regarding the
+     Licensed Material not stated herein are separate from and
+     independent of the terms and conditions of this Public License.
+
+
+Section 8 -- Interpretation.
+
+  a. For the avoidance of doubt, this Public License does not, and
+     shall not be interpreted to, reduce, limit, restrict, or impose
+     conditions on any use of the Licensed Material that could lawfully
+     be made without permission under this Public License.
+
+  b. To the extent possible, if any provision of this Public License is
+     deemed unenforceable, it shall be automatically reformed to the
+     minimum extent necessary to make it enforceable. If the provision
+     cannot be reformed, it shall be severed from this Public License
+     without affecting the enforceability of the remaining terms and
+     conditions.
+
+  c. No term or condition of this Public License will be waived and no
+     failure to comply consented to unless expressly agreed to by the
+     Licensor.
+
+  d. Nothing in this Public License constitutes or may be interpreted
+     as a limitation upon, or waiver of, any privileges and immunities
+     that apply to the Licensor or You, including from the legal
+     processes of any jurisdiction or authority.
+
+
+Creative Commons is not a party to its public licenses.
+Notwithstanding, Creative Commons may elect to apply one of its public
+licenses to material it publishes and in those instances will be
+considered the "Licensor." Except for the limited purpose of indicating
+that material is shared under a Creative Commons public license or as
+otherwise permitted by the Creative Commons policies published at
+creativecommons.org/policies, Creative Commons does not authorize the
+use of the trademark "Creative Commons" or any other trademark or logo
+of Creative Commons without its prior written consent including,
+without limitation, in connection with any unauthorized modifications
+to any of its public licenses or any other arrangements,
+understandings, or agreements concerning use of licensed material. For
+the avoidance of doubt, this paragraph does not form part of the public
+licenses.
+
+Creative Commons may be contacted at http://creativecommons.org.</literallayout>
+</section>
+</appendix>
+<bibliography id="_bibliography">
+<title>Bibliography</title>
+<bibliodiv><title>Books</title>
+<bibliomixed>
+<bibliomisc>
+<anchor id="meggelen-madsen-smith" xreflabel="[meggelen-madsen-smith]"/>[meggelen-madsen-smith] Jim Van Meggelen &amp; Leif Madsen &amp; Jared Smith.
+<emphasis>Asterisk - The Future Of Telephony</emphasis>. O&#8217;Reilly &amp; Associates. 2007.
+ISBN-13: 978-0-596-51048-0
+</bibliomisc>
+</bibliomixed>
+</bibliodiv>
+</bibliography>
+</book>

@@ -1,0 +1,86 @@
+ATK Overview
+------------
+
+Welcome to the ATK Developer Guide. This manual has been created to assist you in developing voice applications with Astive Toolkit.
+
+This manual assumes that you possess a general understanding of Java and a basic understanding of object oriented programming (OOP) as well as the basic aspects of configuring the Asterisk PBX. Functionalities within the framework structure make use of different technologies – such as XML, Asterisk – and this manual does not focus in describe those technologies, except for the role they play in context.
+
+*What is Astive Toolkit? Why Use it?*
+
+ATK (http://astivetoolkit.org/) is a free, open-source, rapid development framework for Java. Its a foundational format for programmers to create voice applications. Our primary goal is to allow you to work in a structured and rapid manner–without losing of flexibility. It's a toolkit and server that aim to make voice application easy.
+
+ATK takes the complexity out of voice development; providing you with all the necessary tools to get started coding what you need to get done: the logic specific to your application. You won't have to reinvent the wheel every time you sit down to a new project, just generate a skeleton with _archetypes_ and get ready to code.
+
+In addition to keeping you from complexity, using ATK means your application’s core is well tested and is being constantly improved. Here’s a quick list of features you’ll enjoy when using ATK:
+
+* Multi-IVR applications
+* Asterisk 1.8 or greater
+* Compatible with Java 7 or greater
+* Application-Server like operations(start, stop, undeploy, deploy...).
+* Advanced API's for IVR creation
+* Support for FastAGI (AMI on the way).
+* Event-driven architecture
+* Code generation
+* Flexible licensing (http://en.wikipedia.org/wiki/Apache_License)
+* Well documented.
+
+Why do we use Java and Asterisk? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Asterisk, is without any doubts the most used open-source Telephony Engine in the world. It has a large community of developers, administrators and companies supporting it. With every version, they add a lot of new and exciting features and improvements.
+
+In the other hand, Java has been consistently one of the favorite programming languages. With new languages adding to the  _JVM(Java Virtual Machine)_  – such as _Scala_, _Groovy_ and _JRuby_ – I believe we'll see _Java_ for many years.
+
+Understanding the Basics
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are some basic concepts that you need to know before you start developing voice applications with ATK. In this section, I'll describe how ATK functions in relation to Asterisk. I hope this help paint the hole picture.
+
+Asterisk PBX
+^^^^^^^^^^^^
+
+As mentioned earlier, Asterisk is a Telephone Engine. It was developed originally as a PBX(Private Branch Exchange) by Mark Spencer of Digium, in 1999. Since then, a large community of developers has added to their core team. 
+
+Asterisk allows companies to place and receive calls coming from and to VoIP and PSTN networks. Calls can then be managed by voice applications such as IVRs, conference room, mailbox or sent to an agent. It also has multiple APIs to extend its functionalities. The two main APIs are AGI(Asterisk Gateway Interface) and AMI(Asterisk Manager Interface).
+
+The AGI API
+^^^^^^^^^^^
+
+Asterisk Gateway Interface (AGI ) enables external applications to take control of an Asterisk channel. ATK supports FastAGI, a version of AGI, which allows applications to take control of a channel from another location of the network. 
+
+The AMI API
+^^^^^^^^^^^
+
+The Asterisk Manager Interface (AMI) connects a client program to an Asterisk instance and send commands or read events over a TCP/IP stream. It can be particularly useful for tracking the state of a telephony client in Asterisk, and directing that client based on custom  rules.
+
+NOTE: This manual covers more about AGI and AMI in succeeding chapters.
+
+Reporting Issues
+~~~~~~~~~~~~~~~~
+
+The preferred place to report issues is with ATK is the Github issue tracker https://github.com/fonoster/astivetoolkit/issues. You can also use ATK google groups http://groups.google.com/group/astive-toolkit to route your give report problems or give us some feedback.
+
+Where to Get Help
+~~~~~~~~~~~~~~~~~
+
+*The Official ATK website*
+
+http://astivetoolkit.org
+
+The Official ATK website is always a great place to visit. It features links to often-used developer tools, screencasts, and downloads.
+
+*The ATK Developer Guide*
+
+This manual cant be a great source to get answers. Keep in mind that as with many open source projects, we get new folks regularly. Do your best to answer your questions on your own first. Answers may come slower, but they remain in time – and you’ll also be helping others inside the community. Both the API and manual the have an online component.
+
+*The API*
+
+http://astivetoolkit.org/apidocs
+
+Straight to the point and straight from the core developers, the Astive Toolkit API (Application Programming Interface) is the most in-depth documentation around for all the essential details of the internal workings of the framework. It’s a straightforward code reference, so get your coffe cup ready.
+
+*The Google Group*
+
+http://groups.google.com/group/astive-toolkit
+
+Our Google Group can help you find archived answers, as well as frequently asked questions (FAQs), and answers to immediate problems.

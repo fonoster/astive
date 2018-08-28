@@ -1,0 +1,136 @@
+Astive Toolkit is an open-source framework for Java intended to make voice applications developing, deploying and maintaining much easier. Astive Toolkit offers many useful features, such as an event-oriented arquitecture and apis to ease menu creation. The following diagram shows the interrelation between an Astive Server, Asterisk and external resources such as databases or web services.
+
+image::guide/images/communications_diagram.png[Communications Diagram]
+
+The following steps will get your server up and running, as well helping you execute a classic helloworld program. As you get familiar with the enviroment you will be able to write more complex applications. From steps 1 to 3 we will focus in getting Asterisk ready. From step 4, we will install maven, create a new application and deploy the application into the Astive Server.
+
+### Step 1: Installing Asterisk
+
+The Asterisk installation varies from one Linux distribution to another, and from version to version. Please, check the proper steps for your system since this is not intended to be an Asterisk tutorial.
+
+### Step 2: Configure your Asterisk
+
+In this step, we will create a new sip account and dialplan by editing the files sip.conf and extention.conf. Add the following entry to your sip.conf in order to create a new sip account:
+
+```
+[astive] 
+type=friend
+username=astive
+secret=123
+context=astive-context 
+```
+
+In extention.conf add the following lines:
+
+```
+[astive-context] 
+exten => 100,1,Answer 
+exten => 100,2,Playback(hello-world)
+```
+
+Reload you the sip and the dialplan modules in your Asterisk PBX, by doing 'sip reload' and 'dialplan reload' in the Asterisk CLI. Remember, you must do this everytime change your configuration.
+
+### Step 3: Choose and install a softphone (optional)
+
+They are many free sofphones in the market that you can use. I been using Twinkle for few years. In my opinion is a good sofphone. If you chose Twinkle go to File->Change User->Create profile and configure it as follows:
+
+image::guide/images/tw-user-config.png[User Config]
+
+You will also need to change the SIP Port. To do so, go to Edit->System settings->Network and change the port from 5060 to 5061. Now, if everything goes right you should be able to register your sofphone, call the extention '100' and hear a "Hello World". 
+
+As I mentioned before, we've done all this just to ensure that Asterisk is working properly before go into ATK specifics.
+
+### Step 4: Installing Apache Maven
+
+We chose Apache Maven as the default project builder. This is not required, but we highly recommended since it ease the management of your dependencies. In Ubuntu you can install it using apt-get, as follows:
+
+```
+$apt-get install maven
+```
+
+### Step 5: Using the appCreator script to create a new project
+
+Download the SDK from the download section. Uncompress the file and execute the utility appCreator as follow:
+
+```
+$./appCreator yourcompany yourproject
+```
+
+You should be able to see a new folder with the name "yourproject". The structure of the new project will look like:
+
+```
+.
+|-- pom.xml
+`-- src
+    `-- main
+        |-- java
+        |   `-- yourcompany
+        |       `-- App.java
+        `-- resources
+            |-- app.xml
+            `-- hello-world.gsm
+```
+
+Please take a look of App.java. The file 'hello-world.gsm' is a test audio for your program.
+If you look inside app.xml, you will see the mapping parameters. For this project the following configuration has been defined:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<app>    
+    <name>Your Project</name>
+    <description>...</description>
+    <astivlet>
+        <astivletId>yourproject</astivletId>
+        <class>yourcompany.yourproect</class>
+    </astivlet>
+    <astivletMapping>
+        <astivletId>yourproject</astivletId>
+        <urlPattern>/YourProject</urlPattern>
+    </astivletMapping>    
+</app>
+```
+
+Go to the dial plan(extensions.conf) and point to the new application, by changing astive-context to:
+
+```
+[astive-context]
+exten => 100,1,Agi(agi://127.0.0.1/yourproject)
+```
+
+Remember, you must reload your dialplan.
+Go inside yourproject folder and create a .jar using the following command:
+
+```
+$mvn package
+```
+
+### Step 6: Deploying the application
+
+Before deploy the application ensure that all requiered sounds are loaded into Asterisk. Download the last Astive Server. Uncompress the folder. Place yourproject.jar inside de folder "apps" in Astive Server folder. Execute this in your shell:
+
+```
+$./bin/astived start
+Fonoster AstiveServer 1.0.0-RC1    build: 20160723-0317
+http://astivetoolkit.org/
+[init] Astive Remote Server
+** Starting Services **
+NAME		IP		PORT
+astived		127.0.0.1	4573
+admin thread	127.0.0.1	4200
+telned		127.0.0.1	4202
+-------
+Ready!
+[DEBUG] port = 4573
+[DEBUG] backlog = 200
+[DEBUG] bindAddr = /127.0.0.1
+[INFO ] Starting
+[DEBUG] Starting fast agi server socket
+[DEBUG] Deploying applications into ~/opt/astive-server-1.0.0-RC1/apps/
+[DEBUG] Deploying file yourproject.jar
+[DEBUG] Adding url = /YourProject class = yourcompany.yourproject.App
+[DEBUG] App (name=Your Project)
+[DEBUG] Starting connection monitor
+That's it, you should be able to call extension 100 and hear "Hello World" :)
+```
+
+The purpose of this tutorial, was to help you to get your development environment up and running. We talk about the basic configuration needed in your Asterisk PBX, as well as the basic configuration of Twinkle, in order to use it  to test your applications. Refer to the documentation, to get more specifics about creating applications with ATK.

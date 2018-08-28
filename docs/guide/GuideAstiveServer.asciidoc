@@ -1,0 +1,77 @@
+Astive Server
+-------------
+
+Astive Server is a software that run smaller pieces of software called link:GuideAstivlets[Astivlets]. Astive Server is very similar to a Web/Application Server. It allows you perform commands such as _start_, _stop_, _deploy_, _undeploy_, run multiple Interactive Voice Response (IVR) and much more.
+
+The Astive Server can be use standalone or embedded mode. The standalone is more flexible and secure, and the preferred method for production environments, while embedded is the best option for development. 
+
+The file structure of Astive Server may look like:
+
+image::guide/images/astive_server_tree.png[Astive Server Files, height=400]
+
+Setup
+~~~~~
+
+Configuration files are inside the folder _conf_. Configuration files include _admin.properties_, _astived.properties_ and _telnetd.properties and are use to configure services with the same name. You can change IP address to what the service is bound as well as the port number. Looking inside astived.properties we have by default:
+
+....
+server      = org.astivetoolkit.server.AstiveServer
+bind        = 127.0.0.1
+port        = 4573
+disabled    = false
+threads     = 200
+onlyFrom    = localhost
+....
+
+Keep in mind that using +onlyFrom = localhost+ will only allow connections from an Asterisk in the same host. If you want to disable the Admin and Telnet server you can set the parameter disable to true, and voila !
+
+TIP: Use comma to separate multiple IPs(example: onlyFrom = 192.168.0.120, 192.168.0.121).
+
+Embedded Server 
+~~~~~~~~~~~~~~~
+
+The embedded setup is the fastest method to get going, since you can use it from your favorite IDE.
+
+This example will help you setup an application and make it available at URL +agi://127.0.0.1/helloworld+. In order to embed Astive Server, you must use the implementation *_SimpleAstiveServer_*. The _SimpleAstiveServer_ is available through the Maven module atk-server-core. Add the following dependency to your application POM.
+
+[source,xml]
+<dependency>
+    <groupId>org.astivetoolkit</groupId>
+    <artifactId>atk-server-core</artifactId>
+    <version>[1.0.0-RC1,)</version>
+</dependency>
+
+Assuming that you have an Astivlet named MyAstivlet.java in the same package as your Main.java you can embed Astive Server by doing something like this:
+
+[source,java]
+public class Main {
+    static public void main(String... args) {
+        try {
+        SimpleAstiveServer sas = new SimpleAstiveServer(new App())
+        sas.start()
+    } catch (SystemExceptionex) {
+    } catch (IOException ex) {}
+    }
+}
+
+That's it! Your Astivlet is been published using the URL in app.xml and is ready to receive calls from Asterisk.
+
+Telnet Service
+~~~~~~~~~~~~~~
+
+The telnet service may come handy if you are trying to perform some basic operations from a remote host within your network. The current version of telnet service support multiples commands — such as help, stop, lookup, exit, and version — which is very useful to perform basic remote actions.
+
+....
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Astive Remote Server Console
+type 'help' for a list of commands
+[astive]$ help
+ stop
+ help
+ lookup
+ exit
+ version
+[astive]$ 
+....
