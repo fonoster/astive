@@ -12,11 +12,11 @@ Here's what you will need:
 Getting Astive Server and the SDK
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First, let's get a fresh copy of ATK.
+First, let's get a fresh copy of Astive.
 
 To get a fresh copy of Astive Server, and the SDK, please visit the project at http://sourceforge.net/projects/astive/files/?source=navbar[Source Forge] and download the latest version of the software.
 
-To get ATK straight from source, you will need to have Maven and Git. To get and compile ATK from source perform the following commands:
+To get Astive straight from source, you will need to have Maven and Git. To get and compile Astive from source perform the following commands:
 
 ....
 $ git clone https://github.com/fonoster/astive.git

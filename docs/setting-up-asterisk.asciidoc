@@ -1,7 +1,7 @@
 Setting Up Asterisk
 -------------------
 
-Before you can write voice applications with ATK, it's necessary to get Asterisk ready. In this chapter, I will cover the basic configurations to get you ready to code. By no means this is an extensive guide on how to configure Asterisk, I assume that you know the basics of Asterisk.
+Before you can write voice applications with Astive, it's necessary to get Asterisk ready. In this chapter, I will cover the basic configurations to get you ready to code. By no means this is an extensive guide on how to configure Asterisk, I assume that you know the basics of Asterisk.
 
 It's is worth to mention that this configuration will only be useful for testing purposes, however, there are some good tutorials out there to help you archive more complicated scenarios.
 

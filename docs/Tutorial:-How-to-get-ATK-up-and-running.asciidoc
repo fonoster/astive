@@ -38,7 +38,7 @@ image::guide/images/tw-user-config.png[User Config]
 
 You will also need to change the SIP Port. To do so, go to Edit->System settings->Network and change the port from 5060 to 5061. Now, if everything goes right you should be able to register your sofphone, call the extention '100' and hear a "Hello World".
 
-As I mentioned before, we've done all this just to ensure that Asterisk is working properly before go into ATK specifics.
+As I mentioned before, we've done all this just to ensure that Asterisk is working properly before go into Astive specifics.
 
 ### Step 4: Installing Apache Maven
 
@@ -133,4 +133,4 @@ Ready!
 That's it, you should be able to call extension 100 and hear "Hello World" :)
 ```
 
-The purpose of this tutorial, was to help you to get your development environment up and running. We talk about the basic configuration needed in your Asterisk PBX, as well as the basic configuration of Twinkle, in order to use it  to test your applications. Refer to the documentation, to get more specifics about creating applications with ATK.
+The purpose of this tutorial, was to help you to get your development environment up and running. We talk about the basic configuration needed in your Asterisk PBX, as well as the basic configuration of Twinkle, in order to use it  to test your applications. Refer to the documentation, to get more specifics about creating applications with Astive.

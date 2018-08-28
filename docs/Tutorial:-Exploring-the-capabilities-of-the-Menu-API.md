@@ -82,7 +82,7 @@ while(true) {
 hangup();
 ```
 
-With the Menu API you can avoid having all those loops or conditionals in your program. You can separate the controller of your program, from the navigation logic(similar to MVC). With ATK we will have some like this:
+With the Menu API you can avoid having all those loops or conditionals in your program. You can separate the controller of your program, from the navigation logic(similar to MVC). With Astive we will have some like this:
 
 ```java
 answer();
@@ -151,4 +151,4 @@ try {
 hangup();
 ```
 
-As you can see there is not loop or conditionals that complicate the navigation logic. Also you can take advance of the event-driven capabilities of ATK. Refer to the tutorial section for more info.
+As you can see there is not loop or conditionals that complicate the navigation logic. Also you can take advance of the event-driven capabilities of Astive. Refer to the tutorial section for more info.

@@ -1,7 +1,7 @@
-ATK Overview
+Astive Overview
 ------------
 
-Welcome to the ATK Developer Guide. This manual has been created to assist you in developing voice applications with Astive Toolkit.
+Welcome to the Astive Developer Guide. This manual has been created to assist you in developing voice applications with Astive Toolkit.
 
 This manual assumes that you possess a general understanding of Java and a basic understanding of object oriented programming (OOP) as well as the basic aspects of configuring the Asterisk PBX. Functionalities within the framework structure make use of different technologies – such as XML, Asterisk – and this manual does not focus in describe those technologies, except for the role they play in context.
 
@@ -34,7 +34,7 @@ In the other hand, Java has been consistently one of the favorite programming la
 Understanding the Basics
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are some basic concepts that you need to know before you start developing voice applications with ATK. In this section, I'll describe how ATK functions in relation to Asterisk. I hope this help paint the hole picture.
+There are some basic concepts that you need to know before you start developing voice applications with Astive. In this section, I'll describe how Astive functions in relation to Asterisk. I hope this help paint the hole picture.
 
 Asterisk PBX
 ^^^^^^^^^^^^
@@ -46,7 +46,7 @@ Asterisk allows companies to place and receive calls coming from and to VoIP and
 The AGI API
 ^^^^^^^^^^^
 
-Asterisk Gateway Interface (AGI ) enables external applications to take control of an Asterisk channel. ATK supports FastAGI, a version of AGI, which allows applications to take control of a channel from another location of the network.
+Asterisk Gateway Interface (AGI ) enables external applications to take control of an Asterisk channel. Astive supports FastAGI, a version of AGI, which allows applications to take control of a channel from another location of the network.
 
 Reporting Issues
 ~~~~~~~~~~~~~~~~

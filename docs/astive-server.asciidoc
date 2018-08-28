@@ -32,12 +32,12 @@ Embedded Server
 
 The embedded setup is the fastest method to get going, since you can use it from your favorite IDE.
 
-This example will help you setup an application and make it available at URL +agi://127.0.0.1/helloworld+. In order to embed Astive Server, you must use the implementation *_SimpleAstiveServer_*. The _SimpleAstiveServer_ is available through the Maven module atk-server-core. Add the following dependency to your application POM.
+This example will help you setup an application and make it available at URL +agi://127.0.0.1/helloworld+. In order to embed Astive Server, you must use the implementation *_SimpleAstiveServer_*. The _SimpleAstiveServer_ is available through the Maven module Astive-server-core. Add the following dependency to your application POM.
 
 [source,xml]
 <dependency>
-    <groupId>org.astivetoolkit</groupId>
-    <artifactId>atk-server-core</artifactId>
+    <groupId>com.fonoster</groupId>
+    <artifactId>astive-server</artifactId>
     <version>[1.0.0-RC1,)</version>
 </dependency>
 
