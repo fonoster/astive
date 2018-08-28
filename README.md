@@ -1,12 +1,12 @@
-# Astive is a Media Server for the Asterisk PBX
+# Astive is a Media Controller for Asterisk PBX
 
 **Astive** was designed to overcome the complexity of building custom voice applications with Asterisk PBX. Astive, uses Asterisk's AGI to create powerful interactive menus with Java.
 
 Astive makes creating voice applications easier for developers, however, it is important to have a good Asterisk foundation. To learn some key concepts and get up and running, check out the following tutorials:
 
-* [Getting started with Astivlets](https://github.com/fonoster/astive/wiki/Tutorial:-Getting-Started-With-Astivlets)
-* [How to get Astive up and running](https://github.com/fonoster/astive/wiki/Tutorial:-How-to-get-ATK-up-and-running)
-* [Exploring the capabilities of the Menu API](https://github.com/fonoster/astive/wiki/Tutorial:-Exploring-the-capabilities-of-the-Menu-API)
+* [Getting started with Astivlets](https://github.com/fonoster/astive/blob/master/docs/Tutorial:-Getting-Started-With-Astivlets.asciidoc)
+* [How to get Astive up and running](https://github.com/fonoster/astive/blob/master/docs/Tutorial:-How-to-get-ATK-up-and-running.asciidoc)
+* [Exploring the capabilities of the Menu API](https://github.com/fonoster/astive/blob/master/docs/Tutorial:-Exploring-the-capabilities-of-the-Menu-API.md)
 
 ## Requirements
 
@@ -29,11 +29,7 @@ NOTE: The script will generate the Astive Server and the SDK. You can find the a
 
 ## Getting started with Astive
 
-A good way to start building apps with Astive is by reading the [wiki](https://github.com/fonoster/astive/wiki/GuideHelloWorldTutorial). There you will find detail information in how to build, test, and deploy your apps.
-
-## Getting help
-
-The best way to get help is through the [Google Groups](http://bit.ly/13KGLyx). You can also follow @fonoster on Twitter for events and quick updates.
+A good way to start building apps with Astive is by reading the [docs](https://github.com/fonoster/astive/tree/master/docs). There you will find detail information in how to build, test, and deploy your apps.
 
 ## Authors
 
