@@ -1,6 +1,6 @@
 FROM alpine
 
-ENV ASTIVE_VERSION 1.0.7
+ENV ASTIVE_VERSION 1.0.9
 ENV ASTIVE_HOME=/opt/astive
 ENV ASTIVE_APPS=/opt/astive/apps
 
