@@ -1,12 +1,12 @@
-# Astive is a FastAGI Server for Asterisk PBX
+# Astive is a Media Server for the Asterisk PBX
 
 **Astive** was designed to overcome the complexity of building custom voice applications with Asterisk PBX. Astive, uses Asterisk's AGI to create powerful interactive menus with Java.
 
 Astive makes creating voice applications easier for developers, however, it is important to have a good Asterisk foundation. To learn some key concepts and get up and running, check out the following tutorials:
 
-* [Getting started with Astivlets](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-Getting-Started-With-Astivlets)
-* [How to get Astive up and running](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-How-to-get-ATK-up-and-running)
-* [Exploring the capabilities of the Menu API](https://github.com/fonoster/astivetoolkit/wiki/Tutorial:-Exploring-the-capabilities-of-the-Menu-API)
+* [Getting started with Astivlets](https://github.com/fonoster/astive/wiki/Tutorial:-Getting-Started-With-Astivlets)
+* [How to get Astive up and running](https://github.com/fonoster/astive/wiki/Tutorial:-How-to-get-ATK-up-and-running)
+* [Exploring the capabilities of the Menu API](https://github.com/fonoster/astive/wiki/Tutorial:-Exploring-the-capabilities-of-the-Menu-API)
 
 ## Requirements
 
@@ -21,7 +21,7 @@ To download and build **Astive** perform the following steps in your console:
 
 ```bash
 git clone https://github.com/fonoster/astive.git
-cd astivetoolkit
+cd astive
 ./assembly
 ```
 
@@ -33,7 +33,7 @@ A good way to start building apps with Astive is by reading the [wiki](https://g
 
 ## Getting help
 
-The best way to get help is through the [Google Groups](http://bit.ly/13KGLyx). You can also follow @astivetoolkit on Twitter for events and quick updates.
+The best way to get help is through the [Google Groups](http://bit.ly/13KGLyx). You can also follow @fonoster on Twitter for events and quick updates.
 
 ## Authors
 
@@ -43,8 +43,8 @@ Core team:
 * [Eudris Cabrera](https://github.com/ecabrerar)
 
 ## Contributions
-* Please see our [Contribution Documents](https://raw.githubusercontent.com/fonoster/astivetoolkit/master/CONTRIBUTORS) 
-* [Contributors](https://github.com/fonoster/astivetoolkit/contributors)
+* Please see our [Contribution Documents](https://raw.githubusercontent.com/fonoster/astive/master/CONTRIBUTORS) 
+* [Contributors](https://github.com/fonoster/astive/contributors)
 
 ### Copyright
 
