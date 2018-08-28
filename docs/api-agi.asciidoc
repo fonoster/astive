@@ -1,0 +1,55 @@
+The AGI API
+-----------
+
+Asterisk Gateway Interface (AGI) is a language-independent programming interface for processing calls. It allows developers to write programs that control a call flow on Asterisk servers.
+
+AGI allows external programs, plug-in to the Asterisk dial plan to control functions related to voice channels. Like the CGI feature of web servers, AGI allows any language to communicate with Asterisk via stdin and stout.
+
+FastAGI is the AGI over TCP sockets. FastAGI, allows developers to run the AGI logic in a separate server so that the Asterisk server can focus in processing calls. This is the ideal solution to deploy resource intensive programs. The default TCP port for FastAGI is 4573. Like HTTP, FastAGI use Uniform Resource Identifiers (URIs) to locate applications. The URI format employed is: +agi://hostname[:port][/program/path]+
+
+API Overview
+~~~~~~~~~~~~
+
+AGI has a large set of functions to control the voice channel. Here, I'm going to cover some of the most important ones including functions to gather information and play sounds.
+
+Gather information with AGI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When creating IVRs you may need to collect data resulting from user iteration. It may be a phone number, pin, credit card number etc. AGI provide us with multiple functions to gather user data. Some of this functions are:
+
+* getData
+* streamFile
+* controlStreamFile
+* getOption
+* waitForDigit
+
+Each one of this functions has more than one signature, and behave slightly differently. Here are some questions to help you choose the right one: Do I need to limit the number of digits? Do I need set a timeout? Do I want to allow the user to interrupt the audio before it ends?
+
+.*getData*
+
+Use this function to gather data if you like to set the maximum number of digits and timeout. By setting timeout to "-1," the function will wait forever.
+
+.*streamFile*
+
+This function only returns one character, which make it ideal to use in menu options. For example, if you set escapeDigits to "145" only one of those digits can stop the stream and return the value selected.
+
+.*controlStreamFile*
+
+Similar to streamFile, but allow the user to control the stream. So, if you want your users to be able rewind, forward or stop the stream, this is the function you want.
+
+.*getOption*
+
+This method behaves similar to streamFile, but allows you to set a timeout.
+
+.*waitForDigit*
+
+This function is straightforward. The user have to press a key under certain time, or it will return an empty character.
+
+I recommend using streamFile, controlStreamFile, getOption, waitForDigit when ever you want you user to pick one out of few options. If you need you user to enter information such as credit cards, pin numbers, etc.  getData may be the best choice.
+
+Other functions to gather data and play sounds include: +sayAlpha()+, +sayDate()+, +sayPhonetic()+ and +sayDigits()+. Each one of this functions play sounds base on the pass parameter. They can be used in combination with +streamFile()+ to construct voice messages.
+
+Some Considerations
+~~~~~~~~~~~~~~~~~~~
+
+When using the AGI from Astive, or any library for that matter, make sure that all functions that you are willing to use are no deprecated for your Asterisk version since they change from time to time. We strive to provide backward-compatibility, but you may come across some function that either deprecated or not implemented. If that's the case, we ask you to report the issue so the community can take care of it.

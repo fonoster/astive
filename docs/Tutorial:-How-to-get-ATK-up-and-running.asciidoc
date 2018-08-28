@@ -13,18 +13,18 @@ The Asterisk installation varies from one Linux distribution to another, and fro
 In this step, we will create a new sip account and dialplan by editing the files sip.conf and extention.conf. Add the following entry to your sip.conf in order to create a new sip account:
 
 ```
-[astive] 
+[astive]
 type=friend
 username=astive
 secret=123
-context=astive-context 
+context=astive-context
 ```
 
 In extention.conf add the following lines:
 
 ```
-[astive-context] 
-exten => 100,1,Answer 
+[astive-context]
+exten => 100,1,Answer
 exten => 100,2,Playback(hello-world)
 ```
 
@@ -36,7 +36,7 @@ They are many free sofphones in the market that you can use. I been using Twinkl
 
 image::guide/images/tw-user-config.png[User Config]
 
-You will also need to change the SIP Port. To do so, go to Edit->System settings->Network and change the port from 5060 to 5061. Now, if everything goes right you should be able to register your sofphone, call the extention '100' and hear a "Hello World". 
+You will also need to change the SIP Port. To do so, go to Edit->System settings->Network and change the port from 5060 to 5061. Now, if everything goes right you should be able to register your sofphone, call the extention '100' and hear a "Hello World".
 
 As I mentioned before, we've done all this just to ensure that Asterisk is working properly before go into ATK specifics.
 
@@ -76,7 +76,7 @@ If you look inside app.xml, you will see the mapping parameters. For this projec
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<app>    
+<app>
     <name>Your Project</name>
     <description>...</description>
     <astivlet>
@@ -86,7 +86,7 @@ If you look inside app.xml, you will see the mapping parameters. For this projec
     <astivletMapping>
         <astivletId>yourproject</astivletId>
         <urlPattern>/YourProject</urlPattern>
-    </astivletMapping>    
+    </astivletMapping>
 </app>
 ```
 
@@ -111,7 +111,7 @@ Before deploy the application ensure that all requiered sounds are loaded into A
 ```
 $./bin/astived start
 Fonoster AstiveServer 1.0.0-RC1    build: 20160723-0317
-http://astivetoolkit.org/
+https://github.com/fonoster/astive
 [init] Astive Remote Server
 ** Starting Services **
 NAME		IP		PORT

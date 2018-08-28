@@ -1,9 +1,0 @@
-Getting Started
----------------
-
-Astive Toolkit provides a robust base for your voice applications. It can handle every aspect of your project, from building the application up to deploy to production. And, since the toolkit follows principles similar to MVC, it allows you to easily customize, build and extend most aspects of your application.
-
-The toolkit also provides a basic organizational structure, based on _Maven Archetypes_, keeping your entire application consistent and logical. This concept is simple but powerful. Follow the conventions and you will always know exactly where things are.
-
-The best way to experience and learn Astive Toolkit is to sit down and build something. To start off, let's build the classic _"Hello World"_ application.
-
