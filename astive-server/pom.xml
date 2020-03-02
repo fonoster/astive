@@ -66,6 +66,7 @@
                 </executions>
                 <inherited>true</inherited>
                 <configuration>
+                    <javaSource>1.8</javaSource>
                     <schemaDirectory>src/main/resources</schemaDirectory>
                     <sourceSchemas>
                         <sourceSchema>app.xsd</sourceSchema>
