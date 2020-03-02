@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 by Fonoster Inc (http://fonoster.com)
  * http://github.com/fonoster/astive
  *
@@ -18,7 +18,7 @@
  */
 package com.fonoster.astive.server;
 
-import com.sun.corba.se.impl.util.Version;
+import com.fonoster.astive.Version;
 import org.apache.commons.cli.*;
 import org.apache.log4j.Category;
 import org.apache.log4j.Level;
@@ -70,7 +70,7 @@ public class AstiveServer extends AbstractAstiveServer {
             AbstractAstiveServer.ASTIVE_HOME + "/conf/telned.properties";
     private ExecutorService executorService;
     private ConnectionMonitor monitor;
-    
+
     public AstiveServer(int port, int backlog, InetAddress bindAddr)
             throws SystemException, IOException {
         super(port, backlog, bindAddr);
@@ -408,7 +408,7 @@ public class AstiveServer extends AbstractAstiveServer {
         if (LOG.isDebugEnabled()) {
             LOG.debug(AppLocale.getI18n("messageStartingAstiveServer"));
         }
-        
+
         super.start();
 
         // Load properties for admin daemon
@@ -478,7 +478,7 @@ public class AstiveServer extends AbstractAstiveServer {
 
                 executorService.execute(ts);
             }
-            
+
             if (LOG.isDebugEnabled()) {
                 LOG.debug(AppLocale.getI18n("messageDone"));
             }
